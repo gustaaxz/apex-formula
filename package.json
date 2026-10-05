@@ -1,0 +1,12 @@
+{
+  "name": "apex-formula",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Jogo local de corrida 3D de monopostos com cockpit, IA e estratégia.",
+  "scripts": {
+    "test": "node --test tests/simulation.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
