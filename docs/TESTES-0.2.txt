@@ -1,0 +1,37 @@
+✔ legacy assist flags and automatic transmission are forcibly disabled (1.6037ms)
+✔ steering a stopped car does not translate or rotate it; brakes never propel it (10.1225ms)
+✔ without steering the car keeps world heading and leaves the centre of a curve (2.4154ms)
+✔ heading can exceed the old 65 degree limit and is never magnetised to the road (0.6697ms)
+✔ first gear reaches its own limiter rather than 293 km/h; no automatic upshift (10.8695ms)
+✔ an upshift drops RPM at constant speed; an unsafe downshift is rejected (0.6024ms)
+✔ held gear and sampled telemetry have coherent RPM/speed across all eight ratios (0.5465ms)
+✔ cold 20 C and warm 85/100 C tyres have clearly different stopping distances (5.3449ms)
+✔ overheating and wear extend braking distance (6.0216ms)
+✔ wet road reduces acceleration and wheelspin is exposed without traction control (3.9561ms)
+✔ combined grip: locked braking removes cornering authority (1.0019ms)
+✔ aero load improves high-speed braking; higher fuel mass extends braking (7.671ms)
+✔ grade, engine upgrades and DRS change longitudinal dynamics (9.6992ms)
+✔ pit limiter cuts power but never brakes or steers automatically (17.898ms)
+✔ front/rear temperatures evolve with work and cool while parked (20.1398ms)
+✔ fixed-step subdivision keeps braking reproducible at 60 and 120 Hz (3.8475ms)
+✔ test driver completes every fictional circuit without contact or leaving the road (369.8826ms)
+✔ test driver enters, brakes, services and exits pits using explicit controls (29.8561ms)
+✔ six fictional circuits are closed, finite and independent (11.1814ms)
+✔ start lights hold the grid; manual first accelerates and braking stops (14.3902ms)
+✔ ERS drains in overtake and recovers only under moving braking (4.1889ms)
+✔ DRS needs eligibility and closes under braking or rain (0.2897ms)
+✔ wet tyres brake better than slicks at their working temperatures on wet road (1.6631ms)
+✔ sequential gearbox reaches first/eighth and reverse requires stopping (2.2683ms)
+✔ pit entry and stationary service replace tyres without automatic lane control (2.2803ms)
+✔ explicit test driver finishes five laps with finite timing and bounded resources (185.549ms)
+✔ nineteen opponents remain finite and execute scheduled pit stops (101.6793ms)
+✔ empty tank retires a stationary car; dynamic weather wets and dries (524.4062ms)
+✔ hard impact triggers Safety Car and the flag eventually returns green (31.3977ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 945.2231

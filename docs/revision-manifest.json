@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-08",
+  "location": "Local workspace; not synced to GitHub",
+  "sha256": {
+    "index.html": "6e2e28cd910c0338172a390a5c73d594b9f7ea459617a91fa3a13f9a867bac85",
+    "game.js": "2bc5c583f94fbde83eea066287f954eef581ddd6f6325c9a2d0befbfd7b2ec35",
+    "simulation.js": "361edee467720a0dac27792d1da80bf88d97ee109596ca88c99e50d84c217e87",
+    "vehicle.js": "f4ef78b528014c43b47156eefaec2d0ce5b01b5ddcedda8ce4c6cc5939bc2983",
+    "style.css": "956011ba41bac4ac3461758974ec6b3b67c881bc86beec546eff379fbdc7fd24",
+    "package.json": "ff3ecadb81537b74e317604c5ceb9c932b9bf659d402635e1c0184896c858c52",
+    "docs/car-reference-data.json": "9a1c6e77e0bea14efea070407c2c83c28291646b06bdd28911be64b3f1d4bf63",
+    "docs/car-validation.json": "a5ea442f22be64713ed5111d04632c23007a7e8e70699fc02d57d272fca572a9"
+  }
+}

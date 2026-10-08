@@ -1,0 +1,1309 @@
+{
+  "date": "2026-10-06",
+  "model": "APEX Formula 0.1.0; game/simulation not modified",
+  "dt": 0.008333333333333333,
+  "criteriaNotice": "Functional PASS does not establish real-world fidelity; FAIL is a reproducible gap. Synthetic fixtures isolate causes and are not official telemetry.",
+  "summary": {
+    "total": 22,
+    "pass": 8,
+    "fail": 14
+  },
+  "results": [
+    {
+      "id": "R01",
+      "title": "Primeira marcha tem limite de velocidade coerente com relações de transmissão",
+      "status": "FAIL",
+      "evidence": {
+        "times": {
+          "100": 2.875,
+          "200": 11.15
+        },
+        "terminalKph": 292.534,
+        "gear": 1
+      }
+    },
+    {
+      "id": "R02",
+      "title": "Tração na chuva limita a aceleração com slicks",
+      "status": "FAIL",
+      "evidence": {
+        "dry": {
+          "times": {
+            "100": 2.367,
+            "200": 5.325,
+            "300": 11.608
+          },
+          "terminalKph": 328.777,
+          "gear": 8
+        },
+        "wet": {
+          "times": {
+            "100": 2.367,
+            "200": 5.325,
+            "300": 11.608
+          },
+          "terminalKph": 328.777,
+          "gear": 8
+        },
+        "note": "10% é critério de sensibilidade da auditoria, não especificação oficial."
+      }
+    },
+    {
+      "id": "R03",
+      "title": "Pneus frios perdem aderência de frenagem",
+      "status": "FAIL",
+      "evidence": {
+        "cold": 30.162,
+        "warm": 30.162,
+        "unit": "m/s²"
+      }
+    },
+    {
+      "id": "R04",
+      "title": "Pneu de chuva freia melhor que slick em pista muito molhada",
+      "status": "PASS",
+      "evidence": {
+        "dryABS": {
+          "seconds": 1.867,
+          "metres": 103.234,
+          "finalKph": 99.982
+        },
+        "dryNoABS": {
+          "seconds": 1.65,
+          "metres": 91.124,
+          "finalKph": 99.441
+        },
+        "wetSlick": {
+          "seconds": 3.608,
+          "metres": 199.295,
+          "finalKph": 99.865
+        },
+        "wetTyre": {
+          "seconds": 1.733,
+          "metres": 95.64,
+          "finalKph": 99.076
+        },
+        "cold": {
+          "seconds": 1.867,
+          "metres": 103.234,
+          "finalKph": 99.982
+        },
+        "warm": {
+          "seconds": 1.867,
+          "metres": 103.234,
+          "finalKph": 99.982
+        },
+        "worn": {
+          "seconds": 2.575,
+          "metres": 142.156,
+          "finalKph": 99.375
+        },
+        "bremboComparison": {
+          "seconds": 1.875,
+          "metres": 110.225,
+          "finalKph": 88.563
+        }
+      }
+    },
+    {
+      "id": "R05",
+      "title": "Desgaste aumenta distância de frenagem",
+      "status": "PASS",
+      "evidence": {
+        "fresh": {
+          "seconds": 1.867,
+          "metres": 103.234,
+          "finalKph": 99.982
+        },
+        "worn": {
+          "seconds": 2.575,
+          "metres": 142.156,
+          "finalKph": 99.375
+        }
+      }
+    },
+    {
+      "id": "R06",
+      "title": "Frear e esterçar compartilham a aderência disponível",
+      "status": "FAIL",
+      "evidence": {
+        "straightDecel": 30.162,
+        "fullSteerDecel": 30.162,
+        "note": "Critério qualitativo; não há orçamento combinado de forças no modelo."
+      }
+    },
+    {
+      "id": "R07",
+      "title": "Carro parado não se desloca lateralmente ao girar o volante",
+      "status": "FAIL",
+      "evidence": {
+        "speed": 0,
+        "lateralMetres": 6.529
+      }
+    },
+    {
+      "id": "R08",
+      "title": "ERS não recupera energia de frenagem com carro parado",
+      "status": "FAIL",
+      "evidence": {
+        "batteryStart": 0,
+        "batteryEnd": 100,
+        "speed": 0
+      }
+    },
+    {
+      "id": "R09",
+      "title": "Aclive altera a desaceleração do carro",
+      "status": "FAIL",
+      "evidence": {
+        "flatKph": 207.577,
+        "uphill10PercentKph": 207.577
+      }
+    },
+    {
+      "id": "R10",
+      "title": "Melhoria de motor afeta aceleração",
+      "status": "FAIL",
+      "evidence": {
+        "baseKph": 285.662,
+        "upgradeKph": 285.662
+      }
+    },
+    {
+      "id": "R11",
+      "title": "Sem assistência nem esterço, orientação não se alinha sozinha à curva",
+      "status": "FAIL",
+      "evidence": {
+        "headingChangeDegrees": 2.265,
+        "yawDegrees": -6.245,
+        "note": "Curva sintética de raio 200 m; orientação global = direção da pista + yaw."
+      }
+    },
+    {
+      "id": "R12",
+      "title": "Volta inteiramente fora da pista é invalidada",
+      "status": "FAIL",
+      "evidence": {
+        "best": 76.84166666667389,
+        "lapCount": 1,
+        "warnings": 30,
+        "penalty": 50,
+        "collisions": 0
+      }
+    },
+    {
+      "id": "R13",
+      "title": "Penalidade de tempo entra na classificação final",
+      "status": "FAIL",
+      "evidence": {
+        "leader": "VOCÊ",
+        "penaltySeconds": 10,
+        "gapMetres": 10,
+        "note": "rank() também é usado na tela de resultado e na atribuição de pontos."
+      }
+    },
+    {
+      "id": "R14",
+      "title": "Dinâmica permite rotação contínua e recuperação de um giro completo",
+      "status": "FAIL",
+      "evidence": {
+        "maxRelativeYawDegrees": 20.173,
+        "collisions": 9,
+        "modelClampDegrees": 65.89
+      }
+    },
+    {
+      "id": "R15",
+      "title": "Massa de combustível influencia frenagem",
+      "status": "FAIL",
+      "evidence": {
+        "light": 30.162,
+        "heavy": 30.162,
+        "unit": "m/s²",
+        "note": "Não substitui calibração com massa total, pneus e downforce."
+      }
+    },
+    {
+      "id": "T01",
+      "title": "Seis pistas fechadas e sem auto-interseção da linha central",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "Costa Verde",
+          "lengthM": 4086.035,
+          "declaredTurns": 18,
+          "controlPoints": 18,
+          "elevationRangeM": 9.092,
+          "minimumRadiusM": 38.188,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        },
+        {
+          "name": "Marina Neon",
+          "lengthM": 4901.018,
+          "declaredTurns": 22,
+          "controlPoints": 22,
+          "elevationRangeM": 0,
+          "minimumRadiusM": 9.761,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        },
+        {
+          "name": "Alta Velocità",
+          "lengthM": 4419.724,
+          "declaredTurns": 16,
+          "controlPoints": 16,
+          "elevationRangeM": 0,
+          "minimumRadiusM": 18.797,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        },
+        {
+          "name": "Sierra Blanca",
+          "lengthM": 4297.446,
+          "declaredTurns": 20,
+          "controlPoints": 20,
+          "elevationRangeM": 34.095,
+          "minimumRadiusM": 18.816,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        },
+        {
+          "name": "Dunas de Yas",
+          "lengthM": 4430.912,
+          "declaredTurns": 18,
+          "controlPoints": 18,
+          "elevationRangeM": 0,
+          "minimumRadiusM": 50.938,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        },
+        {
+          "name": "Silver Coast",
+          "lengthM": 4557.814,
+          "declaredTurns": 19,
+          "controlPoints": 19,
+          "elevationRangeM": 0,
+          "minimumRadiusM": 18.247,
+          "directionOnMap": "horário",
+          "centrelineIntersections": 0,
+          "roadWidthM": 14.5
+        }
+      ]
+    },
+    {
+      "id": "R16",
+      "title": "Pé embaixo sem esterçar/frear não completa seis pistas intacto",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "track": "Costa Verde",
+          "finished": true,
+          "time": 50.142,
+          "collisions": 0,
+          "peakRequiredLateralG": 22.069,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        },
+        {
+          "track": "Marina Neon",
+          "finished": true,
+          "time": 59.075,
+          "collisions": 0,
+          "peakRequiredLateralG": 86.245,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        },
+        {
+          "track": "Alta Velocità",
+          "finished": true,
+          "time": 53.8,
+          "collisions": 0,
+          "peakRequiredLateralG": 45.074,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        },
+        {
+          "track": "Sierra Blanca",
+          "finished": true,
+          "time": 52.467,
+          "collisions": 0,
+          "peakRequiredLateralG": 45.052,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        },
+        {
+          "track": "Dunas de Yas",
+          "finished": true,
+          "time": 53.925,
+          "collisions": 0,
+          "peakRequiredLateralG": 16.641,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        },
+        {
+          "track": "Silver Coast",
+          "finished": true,
+          "time": 55.317,
+          "collisions": 0,
+          "peakRequiredLateralG": 46.224,
+          "steeringCommands": 0,
+          "brakingCommands": 0
+        }
+      ]
+    },
+    {
+      "id": "F01",
+      "title": "36 sessões permanecem numericamente estáveis",
+      "status": "PASS",
+      "evidence": {
+        "sessions": 36,
+        "finished": 36
+      }
+    },
+    {
+      "id": "F02",
+      "title": "Entrada, serviço e saída de boxes funcionam nas seis pistas",
+      "status": "PASS",
+      "evidence": [
+        {
+          "track": "Costa Verde",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        },
+        {
+          "track": "Marina Neon",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        },
+        {
+          "track": "Alta Velocità",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        },
+        {
+          "track": "Sierra Blanca",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        },
+        {
+          "track": "Dunas de Yas",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        },
+        {
+          "track": "Silver Coast",
+          "service": true,
+          "stops": 1,
+          "exited": true,
+          "tyre": "hard"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Resultado em 30, 60 e 120 Hz varia menos de 1%",
+      "status": "PASS",
+      "evidence": [
+        {
+          "hz": 30,
+          "speed": 79.40298770805377,
+          "distance": 484.96674442644627
+        },
+        {
+          "hz": 60,
+          "speed": 79.36809023719029,
+          "distance": 484.07503214988884
+        },
+        {
+          "hz": 120,
+          "speed": 79.35065719832434,
+          "distance": 483.62929137449095
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Pausa do modelo congela tempo e movimento",
+      "status": "PASS",
+      "evidence": {
+        "time": 0,
+        "distance": 0
+      }
+    },
+    {
+      "id": "F05",
+      "title": "Seis corridas de cinco voltas com IA encerram e fazem paradas",
+      "status": "PASS",
+      "evidence": [
+        {
+          "track": "Costa Verde",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 2.488
+        },
+        {
+          "track": "Marina Neon",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 7.524
+        },
+        {
+          "track": "Alta Velocità",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 4.084
+        },
+        {
+          "track": "Sierra Blanca",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 4.136
+        },
+        {
+          "track": "Dunas de Yas",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 2.402
+        },
+        {
+          "track": "Silver Coast",
+          "finished": true,
+          "lapCount": 5,
+          "finite": true,
+          "aiPitStops": 19,
+          "peakRequiredLateralG": 4.065
+        }
+      ]
+    }
+  ],
+  "measurements": {
+    "acceleration": {
+      "automatic": {
+        "times": {
+          "100": 2.367,
+          "200": 5.325,
+          "300": 11.608
+        },
+        "terminalKph": 328.777,
+        "gear": 8
+      },
+      "firstGear": {
+        "times": {
+          "100": 2.875,
+          "200": 11.15
+        },
+        "terminalKph": 292.534,
+        "gear": 1
+      },
+      "eighthGear": {
+        "times": {
+          "100": 7.925,
+          "200": 17.717,
+          "300": 28.425
+        },
+        "terminalKph": 328.777,
+        "gear": 8
+      },
+      "wetSlick": {
+        "times": {
+          "100": 2.367,
+          "200": 5.325,
+          "300": 11.608
+        },
+        "terminalKph": 328.777,
+        "gear": 8
+      },
+      "drySlick": {
+        "times": {
+          "100": 2.367,
+          "200": 5.325,
+          "300": 11.608
+        },
+        "terminalKph": 328.777,
+        "gear": 8
+      },
+      "emptyBattery": {
+        "times": {
+          "100": 2.408,
+          "200": 5.417,
+          "300": 11.842
+        },
+        "terminalKph": 328.459,
+        "gear": 8
+      }
+    },
+    "braking": {
+      "dryABS": {
+        "seconds": 1.867,
+        "metres": 103.234,
+        "finalKph": 99.982
+      },
+      "dryNoABS": {
+        "seconds": 1.65,
+        "metres": 91.124,
+        "finalKph": 99.441
+      },
+      "wetSlick": {
+        "seconds": 3.608,
+        "metres": 199.295,
+        "finalKph": 99.865
+      },
+      "wetTyre": {
+        "seconds": 1.733,
+        "metres": 95.64,
+        "finalKph": 99.076
+      },
+      "cold": {
+        "seconds": 1.867,
+        "metres": 103.234,
+        "finalKph": 99.982
+      },
+      "warm": {
+        "seconds": 1.867,
+        "metres": 103.234,
+        "finalKph": 99.982
+      },
+      "worn": {
+        "seconds": 2.575,
+        "metres": 142.156,
+        "finalKph": 99.375
+      },
+      "bremboComparison": {
+        "seconds": 1.875,
+        "metres": 110.225,
+        "finalKph": 88.563
+      }
+    },
+    "tracks": [
+      {
+        "name": "Costa Verde",
+        "lengthM": 4086.035,
+        "declaredTurns": 18,
+        "controlPoints": 18,
+        "elevationRangeM": 9.092,
+        "minimumRadiusM": 38.188,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      },
+      {
+        "name": "Marina Neon",
+        "lengthM": 4901.018,
+        "declaredTurns": 22,
+        "controlPoints": 22,
+        "elevationRangeM": 0,
+        "minimumRadiusM": 9.761,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      },
+      {
+        "name": "Alta Velocità",
+        "lengthM": 4419.724,
+        "declaredTurns": 16,
+        "controlPoints": 16,
+        "elevationRangeM": 0,
+        "minimumRadiusM": 18.797,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      },
+      {
+        "name": "Sierra Blanca",
+        "lengthM": 4297.446,
+        "declaredTurns": 20,
+        "controlPoints": 20,
+        "elevationRangeM": 34.095,
+        "minimumRadiusM": 18.816,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      },
+      {
+        "name": "Dunas de Yas",
+        "lengthM": 4430.912,
+        "declaredTurns": 18,
+        "controlPoints": 18,
+        "elevationRangeM": 0,
+        "minimumRadiusM": 50.938,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      },
+      {
+        "name": "Silver Coast",
+        "lengthM": 4557.814,
+        "declaredTurns": 19,
+        "controlPoints": 19,
+        "elevationRangeM": 0,
+        "minimumRadiusM": 18.247,
+        "directionOnMap": "horário",
+        "centrelineIntersections": 0,
+        "roadWidthM": 14.5
+      }
+    ],
+    "noSteeringLaps": [
+      {
+        "track": "Costa Verde",
+        "finished": true,
+        "time": 50.142,
+        "collisions": 0,
+        "peakRequiredLateralG": 22.069,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      },
+      {
+        "track": "Marina Neon",
+        "finished": true,
+        "time": 59.075,
+        "collisions": 0,
+        "peakRequiredLateralG": 86.245,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      },
+      {
+        "track": "Alta Velocità",
+        "finished": true,
+        "time": 53.8,
+        "collisions": 0,
+        "peakRequiredLateralG": 45.074,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      },
+      {
+        "track": "Sierra Blanca",
+        "finished": true,
+        "time": 52.467,
+        "collisions": 0,
+        "peakRequiredLateralG": 45.052,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      },
+      {
+        "track": "Dunas de Yas",
+        "finished": true,
+        "time": 53.925,
+        "collisions": 0,
+        "peakRequiredLateralG": 16.641,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      },
+      {
+        "track": "Silver Coast",
+        "finished": true,
+        "time": 55.317,
+        "collisions": 0,
+        "peakRequiredLateralG": 46.224,
+        "steeringCommands": 0,
+        "brakingCommands": 0
+      }
+    ],
+    "sessions": [
+      {
+        "track": "Costa Verde",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 74.208,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.516,
+        "finite": true
+      },
+      {
+        "track": "Costa Verde",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 94.5,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 3.315,
+        "peakRequiredLateralG": 2.218,
+        "finite": true
+      },
+      {
+        "track": "Costa Verde",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 75.067,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.476,
+        "finite": true
+      },
+      {
+        "track": "Costa Verde",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 94.433,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 3.909,
+        "peakRequiredLateralG": 2.211,
+        "finite": true
+      },
+      {
+        "track": "Costa Verde",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 73.05,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.622,
+        "finite": true
+      },
+      {
+        "track": "Costa Verde",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 94.6,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 2.716,
+        "peakRequiredLateralG": 2.214,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 106.117,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 12.44,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 133.717,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.157,
+        "peakRequiredLateralG": 8.205,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 106.783,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 12.718,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 133.65,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.118,
+        "peakRequiredLateralG": 8.201,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 105.067,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 12.131,
+        "finite": true
+      },
+      {
+        "track": "Marina Neon",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 133.858,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.186,
+        "peakRequiredLateralG": 8.205,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 75.475,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.421,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 97.933,
+        "laps": 1,
+        "collisions": 1,
+        "maxLane": 10.121,
+        "peakRequiredLateralG": 4.256,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 76.167,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.548,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 97.9,
+        "laps": 1,
+        "collisions": 1,
+        "maxLane": 10.168,
+        "peakRequiredLateralG": 4.262,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 74.6,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.266,
+        "finite": true
+      },
+      {
+        "track": "Alta Velocità",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 97.992,
+        "laps": 1,
+        "collisions": 1,
+        "maxLane": 10.197,
+        "peakRequiredLateralG": 4.258,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 92.3,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.432,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 116.85,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.178,
+        "peakRequiredLateralG": 4.273,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 92.867,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.571,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 117.375,
+        "laps": 1,
+        "collisions": 3,
+        "maxLane": 10.195,
+        "peakRequiredLateralG": 4.268,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 91.458,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.282,
+        "finite": true
+      },
+      {
+        "track": "Sierra Blanca",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 116.25,
+        "laps": 1,
+        "collisions": 1,
+        "maxLane": 10.153,
+        "peakRequiredLateralG": 4.25,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 77.592,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.438,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 98.75,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 2.065,
+        "peakRequiredLateralG": 2.167,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 78.6,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.331,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 98.683,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 2.86,
+        "peakRequiredLateralG": 2.166,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 76.35,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 3.583,
+        "finite": true
+      },
+      {
+        "track": "Dunas de Yas",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 98.825,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 2.064,
+        "peakRequiredLateralG": 2.159,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "sunset",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 94.367,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.63,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "sunset",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 118.692,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.132,
+        "peakRequiredLateralG": 4.386,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "light",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 95.158,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.793,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "light",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 118.575,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.139,
+        "peakRequiredLateralG": 4.405,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "storm",
+        "assists": true,
+        "driver": "accelerator only",
+        "finished": true,
+        "time": 93.225,
+        "laps": 1,
+        "collisions": 0,
+        "maxLane": 0,
+        "peakRequiredLateralG": 6.479,
+        "finite": true
+      },
+      {
+        "track": "Silver Coast",
+        "weather": "storm",
+        "assists": false,
+        "driver": "synthetic feedback controller, not a human",
+        "finished": true,
+        "time": 118.85,
+        "laps": 1,
+        "collisions": 2,
+        "maxLane": 10.192,
+        "peakRequiredLateralG": 4.381,
+        "finite": true
+      }
+    ],
+    "pits": [
+      {
+        "track": "Costa Verde",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      },
+      {
+        "track": "Marina Neon",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      },
+      {
+        "track": "Alta Velocità",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      },
+      {
+        "track": "Sierra Blanca",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      },
+      {
+        "track": "Dunas de Yas",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      },
+      {
+        "track": "Silver Coast",
+        "service": true,
+        "stops": 1,
+        "exited": true,
+        "tyre": "hard"
+      }
+    ],
+    "timestep": [
+      {
+        "hz": 30,
+        "speed": 79.40298770805377,
+        "distance": 484.96674442644627
+      },
+      {
+        "hz": 60,
+        "speed": 79.36809023719029,
+        "distance": 484.07503214988884
+      },
+      {
+        "hz": 120,
+        "speed": 79.35065719832434,
+        "distance": 483.62929137449095
+      }
+    ],
+    "ai": [
+      {
+        "track": "Costa Verde",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 2.488
+      },
+      {
+        "track": "Marina Neon",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 7.524
+      },
+      {
+        "track": "Alta Velocità",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 4.084
+      },
+      {
+        "track": "Sierra Blanca",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 4.136
+      },
+      {
+        "track": "Dunas de Yas",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 2.402
+      },
+      {
+        "track": "Silver Coast",
+        "finished": true,
+        "lapCount": 5,
+        "finite": true,
+        "aiPitStops": 19,
+        "peakRequiredLateralG": 4.065
+      }
+    ]
+  }
+}
