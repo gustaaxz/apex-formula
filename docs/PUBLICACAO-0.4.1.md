@@ -2,7 +2,7 @@
 
 Destino: [gustaaxz/apex-formula](https://github.com/gustaaxz/apex-formula), branch main. Data: 08/10/2026.
 
-A entrega reúne os mapas e o HUD da revisão 0.4 e a saída apenas pelo acelerador da revisão 0.4.1. Os sete commits são organizados por assunto, com descrição de cada arquivo. O histórico remoto anterior é preservado. Os 87 testes foram aprovados, incluindo voltas secas/molhadas e boxes nos seis mapas. A largada foi repetida no navegador somente com W.
+A entrega reúne os mapas e o HUD da revisão 0.4 e a saída apenas pelo acelerador da revisão 0.4.1. Os dez commits são organizados por assunto, com descrição de cada arquivo. O histórico remoto anterior é preservado. Os 87 testes foram aprovados, incluindo voltas secas/molhadas e boxes nos seis mapas. A largada foi repetida no navegador somente com W.
 
 Relatórios e manifestos antigos permanecem históricos. O manifesto 0.4.1 descreve a entrega atual. Seu iniciador JOGAR.cmd considera os bytes LF já preservados no GitHub; o checkout Windows pode convertê-los para CRLF. O arquivo distribuído usa os mesmos bytes publicados.
 
@@ -70,5 +70,28 @@ Relatórios e manifestos antigos permanecem históricos. O manifesto 0.4.1 descr
 - **docs/revision-manifest-0.4.json**: Preserva os hashes históricos do pacote local 0.4.0.
 - **docs/TESTES-0.4.1.txt**: Preserva a execução atual dos 87 testes aprovados.
 - **docs/TESTES-0.4.txt**: Preserva a saída dos testes ou auditoria da revisão 0.4; permanece um registro histórico.
-- **docs/PUBLICACAO-0.4.1.md**: Lista estes sete commits e a descrição de cada arquivo publicado.
+- **docs/PUBLICACAO-0.4.1.md**: Lista os commits e a descrição de cada arquivo publicado.
 - **docs/revision-manifest-0.4.1.json**: Permite comparar todos os arquivos entregues por SHA-256, excluindo o próprio manifesto.
+
+
+## Correções finais de caracteres
+
+A conferência visual da publicação encontrou acentos corrompidos nos guias, na descrição do projeto e no laboratório. Os arquivos abaixo foram corrigidos em UTF-8; o código de física e os resultados dos 87 testes não foram alterados.
+
+## 8. fix: preservar acentos nos guias e metadados
+
+README.md: Corrige a codificação dos acentos no guia atual, mantendo os controles e os 87 testes documentados.
+
+LEIA-ME.md: Preserva os mesmos caracteres corretos no guia em português.
+
+package.json: Corrige o acento da descrição do projeto, mantendo versão e comandos de teste.
+
+## 9. fix: preservar acentos no laboratório de teclado
+
+tests/browser-lab.html: Recupera a codificação UTF-8 dos rótulos e mensagens, preservando o protocolo de largada somente pelo acelerador W.
+
+## 10. docs: atualizar integridade dos textos publicados
+
+docs/PUBLICACAO-0.4.1.md: Registra os três commits finais de correção de caracteres e a entrega dos mesmos 87 arquivos.
+
+docs/revision-manifest-0.4.1.json: Recalcula os hashes dos guias, metadados, laboratório e inventário para a versão com caracteres corretos.
