@@ -1,0 +1,11 @@
+APEX Formula 0.3.0 — 08/10/2026
+
+npm test: 49 tests, 49 pass, 0 fail.
+29 regressions and 20 chassis/aero/clutch/contact tests.
+Six complete fictional-track laps, five-lap race, explicit pit entry/service/exit.
+Final full-grid integration: 20 cars, 42 contact events in 35 s, all finite.
+Both audit scripts exited 0; reports and full measurements are saved separately.
+Browser: manual launch, body/wheel/link rendering, contact integration, slider/key focus, stall/restart and five thermal braking cases verified.
+Files: dynamics-validation-0.3.json, car-validation-0.3.json, browser-dynamics-validation-0.3.json.
+No physical wheel/gamepad tests. GitHub publication: https://github.com/gustaaxz/apex-formula (2026-10-08).
+Publication check: 49 tests rerun, 49 pass, 0 fail. The 14 remote baseline files matched the local initial version before upload.

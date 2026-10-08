@@ -1,0 +1,489 @@
+{
+  "version": "0.3.0",
+  "date": "2026-10-08",
+  "scope": "Player car; approximate model of 2023–2025 generation. Tracks and AI remain simplified.",
+  "protocol": {
+    "dt": 0.008333333333333333,
+    "braking": "Straight dry road, medium tyres, 30 kg fuel, aero 5/10, brake pedal 100%, 100 km/h to <=0.36 km/h. Tyres evolve during the run. No ABS.",
+    "acceleration": "Explicit test driver releases the clutch and shifts at 11500 road-speed RPM, excluding wheelspin RPM. Flat straight, medium tyres initially 100 C, fuel 30 kg, aero 5/10, full throttle, normal ERS, no traction control."
+  },
+  "braking": [
+    {
+      "initialC": 20,
+      "metres": 58.32,
+      "seconds": 6.45,
+      "finalKph": 0.36,
+      "frontC": 25.8,
+      "rearC": 22.58
+    },
+    {
+      "initialC": 70,
+      "metres": 32.66,
+      "seconds": 2.83,
+      "finalKph": 0,
+      "frontC": 71.87,
+      "rearC": 69.99
+    },
+    {
+      "initialC": 85,
+      "metres": 28.76,
+      "seconds": 2.36,
+      "finalKph": 0.33,
+      "frontC": 86.34,
+      "rearC": 84.68
+    },
+    {
+      "initialC": 100,
+      "metres": 27.74,
+      "seconds": 2.24,
+      "finalKph": 0.25,
+      "frontC": 100.98,
+      "rearC": 99.37
+    },
+    {
+      "initialC": 140,
+      "metres": 48.58,
+      "seconds": 5.84,
+      "finalKph": 0.35,
+      "frontC": 138.61,
+      "rearC": 135.93
+    }
+  ],
+  "gears": [
+    {
+      "gear": 1,
+      "rpmPerKph": 115.7119,
+      "shiftAt11500Kph": 99.38,
+      "limiterAt12500Kph": 108.03,
+      "measured45sKph": 108.08,
+      "reference": {
+        "gear": 1,
+        "samples": 533,
+        "rpmPerKph": 115.7119,
+        "observedSpeedKph": {
+          "min": 41,
+          "p10": 59,
+          "median": 60,
+          "p90": 79,
+          "max": 99
+        },
+        "inferredSpeedAt11500rpmKph": 99.4,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:00:56.962000+00:00",
+            "speed": 50,
+            "rpm": 5920,
+            "n_gear": 1,
+            "throttle": 29
+          },
+          {
+            "date": "2023-09-15T13:09:47.803000+00:00",
+            "speed": 88,
+            "rpm": 10006,
+            "n_gear": 1,
+            "throttle": 41
+          },
+          {
+            "date": "2023-09-15T13:29:58.647000+00:00",
+            "speed": 60,
+            "rpm": 6773,
+            "n_gear": 1,
+            "throttle": 31
+          }
+        ]
+      }
+    },
+    {
+      "gear": 2,
+      "rpmPerKph": 88.7011,
+      "shiftAt11500Kph": 129.65,
+      "limiterAt12500Kph": 140.92,
+      "measured45sKph": 140.89,
+      "reference": {
+        "gear": 2,
+        "samples": 742,
+        "rpmPerKph": 88.7011,
+        "observedSpeedKph": {
+          "min": 57,
+          "p10": 70,
+          "median": 91,
+          "p90": 109,
+          "max": 131
+        },
+        "inferredSpeedAt11500rpmKph": 129.6,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:25.882000+00:00",
+            "speed": 85,
+            "rpm": 7676,
+            "n_gear": 2,
+            "throttle": 47
+          },
+          {
+            "date": "2023-09-15T13:12:16.964000+00:00",
+            "speed": 77,
+            "rpm": 6907,
+            "n_gear": 2,
+            "throttle": 30
+          },
+          {
+            "date": "2023-09-15T13:28:57.927000+00:00",
+            "speed": 113,
+            "rpm": 9540,
+            "n_gear": 2,
+            "throttle": 45
+          }
+        ]
+      }
+    },
+    {
+      "gear": 3,
+      "rpmPerKph": 75.8714,
+      "shiftAt11500Kph": 151.57,
+      "limiterAt12500Kph": 164.75,
+      "measured45sKph": 164.73,
+      "reference": {
+        "gear": 3,
+        "samples": 1362,
+        "rpmPerKph": 75.8714,
+        "observedSpeedKph": {
+          "min": 74,
+          "p10": 92,
+          "median": 117,
+          "p90": 141,
+          "max": 163
+        },
+        "inferredSpeedAt11500rpmKph": 151.6,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:28.041000+00:00",
+            "speed": 141,
+            "rpm": 10944,
+            "n_gear": 3,
+            "throttle": 73
+          },
+          {
+            "date": "2023-09-15T13:29:38.247000+00:00",
+            "speed": 118,
+            "rpm": 8607,
+            "n_gear": 3,
+            "throttle": 30
+          },
+          {
+            "date": "2023-09-15T13:48:09.451000+00:00",
+            "speed": 129,
+            "rpm": 10112,
+            "n_gear": 3,
+            "throttle": 89
+          }
+        ]
+      }
+    },
+    {
+      "gear": 4,
+      "rpmPerKph": 64.1579,
+      "shiftAt11500Kph": 179.25,
+      "limiterAt12500Kph": 194.83,
+      "measured45sKph": 194.77,
+      "reference": {
+        "gear": 4,
+        "samples": 1205,
+        "rpmPerKph": 64.1579,
+        "observedSpeedKph": {
+          "min": 104,
+          "p10": 127,
+          "median": 157,
+          "p90": 184,
+          "max": 201
+        },
+        "inferredSpeedAt11500rpmKph": 179.2,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:29.001000+00:00",
+            "speed": 171,
+            "rpm": 10764,
+            "n_gear": 4,
+            "throttle": 80
+          },
+          {
+            "date": "2023-09-15T13:29:20.847000+00:00",
+            "speed": 156,
+            "rpm": 9542,
+            "n_gear": 4,
+            "throttle": 46
+          },
+          {
+            "date": "2023-09-15T13:50:01.611000+00:00",
+            "speed": 138,
+            "rpm": 9120,
+            "n_gear": 4,
+            "throttle": 72
+          }
+        ]
+      }
+    },
+    {
+      "gear": 5,
+      "rpmPerKph": 53.4306,
+      "shiftAt11500Kph": 215.23,
+      "limiterAt12500Kph": 233.95,
+      "measured45sKph": 233.96,
+      "reference": {
+        "gear": 5,
+        "samples": 696,
+        "rpmPerKph": 53.4306,
+        "observedSpeedKph": {
+          "min": 164,
+          "p10": 182,
+          "median": 207,
+          "p90": 220,
+          "max": 231
+        },
+        "inferredSpeedAt11500rpmKph": 215.2,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:30.042000+00:00",
+            "speed": 203,
+            "rpm": 10839,
+            "n_gear": 5,
+            "throttle": 99
+          },
+          {
+            "date": "2023-09-15T13:31:12.928000+00:00",
+            "speed": 184,
+            "rpm": 9645,
+            "n_gear": 5,
+            "throttle": 50
+          },
+          {
+            "date": "2023-09-15T13:50:08.011000+00:00",
+            "speed": 211,
+            "rpm": 11409,
+            "n_gear": 5,
+            "throttle": 100
+          }
+        ]
+      }
+    },
+    {
+      "gear": 6,
+      "rpmPerKph": 45.9492,
+      "shiftAt11500Kph": 250.28,
+      "limiterAt12500Kph": 272.04,
+      "measured45sKph": 272.05,
+      "reference": {
+        "gear": 6,
+        "samples": 659,
+        "rpmPerKph": 45.9492,
+        "observedSpeedKph": {
+          "min": 191,
+          "p10": 233,
+          "median": 245,
+          "p90": 256,
+          "max": 266
+        },
+        "inferredSpeedAt11500rpmKph": 250.3,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:39.562000+00:00",
+            "speed": 238,
+            "rpm": 11009,
+            "n_gear": 6,
+            "throttle": 100
+          },
+          {
+            "date": "2023-09-15T13:35:13.408000+00:00",
+            "speed": 245,
+            "rpm": 11325,
+            "n_gear": 6,
+            "throttle": 100
+          },
+          {
+            "date": "2023-09-15T13:52:11.252000+00:00",
+            "speed": 235,
+            "rpm": 11096,
+            "n_gear": 6,
+            "throttle": 100
+          }
+        ]
+      }
+    },
+    {
+      "gear": 7,
+      "rpmPerKph": 40.1028,
+      "shiftAt11500Kph": 286.76,
+      "limiterAt12500Kph": 311.7,
+      "measured45sKph": 301.03,
+      "reference": {
+        "gear": 7,
+        "samples": 593,
+        "rpmPerKph": 40.1028,
+        "observedSpeedKph": {
+          "min": 251,
+          "p10": 267,
+          "median": 277,
+          "p90": 286,
+          "max": 300
+        },
+        "inferredSpeedAt11500rpmKph": 286.8,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:41.281000+00:00",
+            "speed": 267,
+            "rpm": 10660,
+            "n_gear": 7,
+            "throttle": 99
+          },
+          {
+            "date": "2023-09-15T13:42:19.530000+00:00",
+            "speed": 271,
+            "rpm": 10842,
+            "n_gear": 7,
+            "throttle": 100
+          },
+          {
+            "date": "2023-09-15T13:52:13.571000+00:00",
+            "speed": 272,
+            "rpm": 10906,
+            "n_gear": 7,
+            "throttle": 99
+          }
+        ]
+      }
+    },
+    {
+      "gear": 8,
+      "rpmPerKph": 35.5677,
+      "shiftAt11500Kph": 323.33,
+      "limiterAt12500Kph": 351.44,
+      "measured45sKph": 303.51,
+      "reference": {
+        "gear": 8,
+        "samples": 82,
+        "rpmPerKph": 35.5677,
+        "observedSpeedKph": {
+          "min": 287,
+          "p10": 298,
+          "median": 304,
+          "p90": 312,
+          "max": 315
+        },
+        "inferredSpeedAt11500rpmKph": 323.3,
+        "evidence": [
+          {
+            "date": "2023-09-15T13:01:44.122000+00:00",
+            "speed": 287,
+            "rpm": 10222,
+            "n_gear": 8,
+            "throttle": 100
+          },
+          {
+            "date": "2023-09-15T13:08:19.523000+00:00",
+            "speed": 313,
+            "rpm": 11117,
+            "n_gear": 8,
+            "throttle": 99
+          },
+          {
+            "date": "2023-09-15T13:26:15.886000+00:00",
+            "speed": 302,
+            "rpm": 10807,
+            "n_gear": 8,
+            "throttle": 99
+          }
+        ]
+      }
+    }
+  ],
+  "laps": [
+    {
+      "track": "Costa Verde",
+      "finished": true,
+      "seconds": 161.22,
+      "collisions": 0,
+      "maxLaneMetres": 0.8,
+      "tyreC": 89.06
+    },
+    {
+      "track": "Marina Neon",
+      "finished": true,
+      "seconds": 256.89,
+      "collisions": 0,
+      "maxLaneMetres": 1.67,
+      "tyreC": 81.96
+    },
+    {
+      "track": "Alta Velocità",
+      "finished": true,
+      "seconds": 165.48,
+      "collisions": 0,
+      "maxLaneMetres": 0.93,
+      "tyreC": 90.94
+    },
+    {
+      "track": "Sierra Blanca",
+      "finished": true,
+      "seconds": 220.16,
+      "collisions": 0,
+      "maxLaneMetres": 0.79,
+      "tyreC": 82.15
+    },
+    {
+      "track": "Dunas de Yas",
+      "finished": true,
+      "seconds": 164.27,
+      "collisions": 0,
+      "maxLaneMetres": 0.9,
+      "tyreC": 89.34
+    },
+    {
+      "track": "Silver Coast",
+      "finished": true,
+      "seconds": 219,
+      "collisions": 0,
+      "maxLaneMetres": 0.83,
+      "tyreC": 83.08
+    }
+  ],
+  "checks": [
+    {
+      "name": "Cold tyres extend braking by at least 60% against 85 C",
+      "status": "PASS"
+    },
+    {
+      "name": "Overheated tyres extend braking against 100 C",
+      "status": "PASS"
+    },
+    {
+      "name": "First gear stays below 112 km/h",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit sequential shifting reaches eighth and 300 km/h",
+      "status": "PASS"
+    },
+    {
+      "name": "No parked steering drift or braking energy exploit",
+      "status": "PASS"
+    },
+    {
+      "name": "All six fictional circuits are driveable by an explicit test controller",
+      "status": "PASS"
+    }
+  ],
+  "acceleration": {
+    "secondsToKph": {
+      "100": 3.658,
+      "200": 7,
+      "300": 22.175
+    },
+    "measured45sKph": 303.5,
+    "finalGear": 8
+  },
+  "parked": {
+    "metres": 0,
+    "lane": 0,
+    "heading": 0,
+    "battery": 50
+  }
+}

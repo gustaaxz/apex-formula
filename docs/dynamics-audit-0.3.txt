@@ -1,0 +1,323 @@
+{
+  "suspension": [
+    {
+      "name": "static",
+      "chassis": {
+        "height": 0,
+        "velocity": 0,
+        "pitch": 0,
+        "pitchRate": 0,
+        "roll": 0,
+        "rollRate": 0
+      },
+      "wheels": [
+        {
+          "name": "FL",
+          "newtons": 2205.20625,
+          "compressionMetres": 0,
+          "contact": true
+        },
+        {
+          "name": "FR",
+          "newtons": 2205.20625,
+          "compressionMetres": 0,
+          "contact": true
+        },
+        {
+          "name": "RL",
+          "newtons": 1865.94375,
+          "compressionMetres": 0,
+          "contact": true
+        },
+        {
+          "name": "RR",
+          "newtons": 1865.94375,
+          "compressionMetres": 0,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "name": "accelerating",
+      "chassis": {
+        "height": 0.00031,
+        "velocity": 0,
+        "pitch": 0.0021,
+        "pitchRate": 0,
+        "roll": 0,
+        "rollRate": 0
+      },
+      "wheels": [
+        {
+          "name": "FL",
+          "newtons": 1790.20625,
+          "compressionMetres": -0.00377,
+          "contact": true
+        },
+        {
+          "name": "FR",
+          "newtons": 1790.20625,
+          "compressionMetres": -0.00377,
+          "contact": true
+        },
+        {
+          "name": "RL",
+          "newtons": 2280.94375,
+          "compressionMetres": 0.00377,
+          "contact": true
+        },
+        {
+          "name": "RR",
+          "newtons": 2280.94375,
+          "compressionMetres": 0.00377,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "name": "braking",
+      "chassis": {
+        "height": -0.00052,
+        "velocity": 0,
+        "pitch": -0.00349,
+        "pitchRate": 0,
+        "roll": 0,
+        "rollRate": 0
+      },
+      "wheels": [
+        {
+          "name": "FL",
+          "newtons": 2896.87292,
+          "compressionMetres": 0.00629,
+          "contact": true
+        },
+        {
+          "name": "FR",
+          "newtons": 2896.87292,
+          "compressionMetres": 0.00629,
+          "contact": true
+        },
+        {
+          "name": "RL",
+          "newtons": 1174.27708,
+          "compressionMetres": -0.00629,
+          "contact": true
+        },
+        {
+          "name": "RR",
+          "newtons": 1174.27708,
+          "compressionMetres": -0.00629,
+          "contact": true
+        }
+      ]
+    },
+    {
+      "name": "cornering",
+      "chassis": {
+        "height": 0,
+        "velocity": 0,
+        "pitch": 0,
+        "pitchRate": 0,
+        "roll": 0.00589,
+        "rollRate": 0
+      },
+      "wheels": [
+        {
+          "name": "FL",
+          "newtons": 2840.41033,
+          "compressionMetres": 0.00577,
+          "contact": true
+        },
+        {
+          "name": "FR",
+          "newtons": 1570.00217,
+          "compressionMetres": -0.00577,
+          "contact": true
+        },
+        {
+          "name": "RL",
+          "newtons": 2501.14783,
+          "compressionMetres": 0.00577,
+          "contact": true
+        },
+        {
+          "name": "RR",
+          "newtons": 1230.73967,
+          "compressionMetres": -0.00577,
+          "contact": true
+        }
+      ]
+    }
+  ],
+  "aero": {
+    "clean": {
+      "front": 4240.08,
+      "rear": 5119.92,
+      "frontWing": 1872,
+      "rearWing": 2340,
+      "floor": 5148,
+      "drag": 2664,
+      "wake": 0,
+      "frontHeight": 0.065,
+      "rearHeight": 0.075,
+      "floorFactor": 1
+    },
+    "following25m": {
+      "front": 3403.62635,
+      "rear": 4364.07247,
+      "frontWing": 1369.86353,
+      "rearWing": 1976.61176,
+      "floor": 4421.22353,
+      "drag": 2287.90588,
+      "wake": 0.70588,
+      "frontHeight": 0.065,
+      "rearHeight": 0.075,
+      "floorFactor": 1
+    },
+    "outOfWake": {
+      "front": 4240.08,
+      "rear": 5119.92,
+      "frontWing": 1872,
+      "rearWing": 2340,
+      "floor": 5148,
+      "drag": 2664,
+      "wake": 0,
+      "frontHeight": 0.065,
+      "rearHeight": 0.075,
+      "floorFactor": 1
+    },
+    "drs": {
+      "front": 4240.08,
+      "rear": 4066.92,
+      "frontWing": 1872,
+      "rearWing": 1287,
+      "floor": 5148,
+      "drag": 2104.56,
+      "wake": 0,
+      "frontHeight": 0.065,
+      "rearHeight": 0.075,
+      "floorFactor": 1
+    }
+  },
+  "clutch": [
+    {
+      "pulledFraction": 1,
+      "kph": 0,
+      "rpm": 12500.06702,
+      "running": true
+    },
+    {
+      "pulledFraction": 0.8,
+      "kph": 2.06142,
+      "rpm": 12397.85619,
+      "running": true
+    },
+    {
+      "pulledFraction": 0.5,
+      "kph": 11.07815,
+      "rpm": 10871.32837,
+      "running": true
+    },
+    {
+      "pulledFraction": 0,
+      "kph": 11.07815,
+      "rpm": 10145.77992,
+      "running": true
+    }
+  ],
+  "stall": {
+    "engineRunning": false,
+    "kph": 0
+  },
+  "braking": [
+    {
+      "initialC": 20,
+      "metres": 58.32017,
+      "seconds": 6.45
+    },
+    {
+      "initialC": 70,
+      "metres": 32.66242,
+      "seconds": 2.83333
+    },
+    {
+      "initialC": 85,
+      "metres": 28.75581,
+      "seconds": 2.35833
+    },
+    {
+      "initialC": 100,
+      "metres": 27.74117,
+      "seconds": 2.24167
+    },
+    {
+      "initialC": 140,
+      "metres": 48.57884,
+      "seconds": 5.84167
+    }
+  ],
+  "laps": [
+    {
+      "track": "Costa Verde",
+      "finished": true,
+      "seconds": 161.21667,
+      "maxLaneMetres": 0.79715,
+      "maxBodyRollRadians": 0.00492,
+      "contacts": 0
+    },
+    {
+      "track": "Marina Neon",
+      "finished": true,
+      "seconds": 256.8875,
+      "maxLaneMetres": 1.67359,
+      "maxBodyRollRadians": 0.00642,
+      "contacts": 0
+    },
+    {
+      "track": "Alta Velocità",
+      "finished": true,
+      "seconds": 165.48333,
+      "maxLaneMetres": 0.92552,
+      "maxBodyRollRadians": 0.0051,
+      "contacts": 0
+    },
+    {
+      "track": "Sierra Blanca",
+      "finished": true,
+      "seconds": 220.15833,
+      "maxLaneMetres": 0.78772,
+      "maxBodyRollRadians": 0.01164,
+      "contacts": 0
+    },
+    {
+      "track": "Dunas de Yas",
+      "finished": true,
+      "seconds": 164.275,
+      "maxLaneMetres": 0.90114,
+      "maxBodyRollRadians": 0.00414,
+      "contacts": 0
+    },
+    {
+      "track": "Silver Coast",
+      "finished": true,
+      "seconds": 218.99583,
+      "maxLaneMetres": 0.82914,
+      "maxBodyRollRadians": 0.00528,
+      "contacts": 0
+    }
+  ],
+  "contacts": {
+    "initialMomentum": 32900,
+    "finalMomentum": 32900,
+    "playerKph": 69.83558,
+    "opponentKph": 75.59558,
+    "playerDamage": 0.21053,
+    "opponentDamage": 0.21053,
+    "separationMetres": 5.6584
+  },
+  "fullGrid": {
+    "cars": 20,
+    "contactEvents": 42,
+    "allFinite": true
+  }
+}
