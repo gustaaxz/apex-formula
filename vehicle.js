@@ -16,7 +16,9 @@ function ratio(gear){return gear===-1?POWERTRAIN.reverseRPMPerKph:POWERTRAIN.rpm
 function shift(r,delta){const p=r.player;if(p.gear<1||p.shiftTimer>0)return false;const next=clamp(p.gear+Math.sign(delta),1,8);if(next===p.gear)return false;if(next<p.gear&&Math.abs(p.forwardSpeed||p.speed)*3.6*ratio(next)>POWERTRAIN.mechanicalRPM){r.message('Redução recusada: rotação acima do limite mecânico.');return false;}p.gear=next;p.shiftTimer=POWERTRAIN.shiftTime;p.engineRPM=Math.max(POWERTRAIN.idle,Math.abs(p.forwardSpeed||p.speed)*3.6*ratio(next));return true;}
 function reverse(r){const p=r.player;if(p.speed>1){r.message('Pare o carro antes de selecionar a ré.');return false;}p.gear=p.gear===-1?1:-1;p.shiftTimer=POWERTRAIN.shiftTime;r.message(p.gear===-1?'Ré selecionada. Acelere com cuidado.':'Primeira marcha selecionada.');return true;}
 function restart(r){const p=r.player;if(p.clutch<.8){r.message('Puxe a embreagem antes de religar o motor.');return false;}p.engineRunning=true;p.engineRPM=POWERTRAIN.idle;r.message('Motor ligado. Dose a embreagem para sair.');return true;}
-function powertrain(r,dt,input,u,rearCap=5000){const p=r.player,c=r.config,throttle=clamp(input.throttle||0,0,1);p.clutch=clamp(input.clutch??p.clutch??1,0,1);p.shiftTimer=Math.max(0,(p.shiftTimer||0)-dt);
+function powertrain(r,dt,input,u,rearCap=5000){const p=r.player,c=r.config,throttle=clamp(input.throttle||0,0,1);// The playable game couples automatically at low speed; explicit clutch input is retained for physical bench tests.
+ const launch=clamp(Math.abs(u)/6,0,1),idleMargin=clamp(((p.engineRPM??POWERTRAIN.idle)-1800)/(POWERTRAIN.idle-1800),0,1);
+ p.clutch=input.clutch!==undefined?clamp(input.clutch,0,1):1-idleMargin*(throttle>0?.6+.4*launch:launch);p.shiftTimer=Math.max(0,(p.shiftTimer||0)-dt);
  const roadRPM=u*(p.gear<0?-1:1)*3.6*ratio(p.gear),overall=ratio(p.gear)*2*Math.PI*POWERTRAIN.wheelRadius*60/1000;
  const engagement=p.shiftTimer>0?0:1-p.clutch,capacity=650*engagement*engagement;
  let rpm=p.engineRPM??POWERTRAIN.idle,transmitted=0;
@@ -42,7 +44,7 @@ function powertrain(r,dt,input,u,rearCap=5000){const p=r.player,c=r.config,throt
  p.engineRPM=clamp(rpm,0,POWERTRAIN.mechanicalRPM);r.rpm=p.engineRPM;p.clutchSlip=Math.abs(p.engineRPM-roadRPM);
  return {drive:p.engineRunning?transmitted*overall/POWERTRAIN.wheelRadius*.92*(p.gear<0?-1:1):0,engagement};
 }
-function grid(r,dt,input){sync(r);powertrain(r,dt,input,0);}
+function grid(r,dt,input){sync(r);powertrain(r,dt,input.clutch===undefined?{...input,clutch:1}:input,0);}
 function tick(r,dt,input,tyres){
  const p=r.player,c=r.config,q=r.track.at(p.d),tyre=tyres[p.tyre],mass=800+p.fuel,a=1.65,b=1.95,wb=a+b;
  const fX=Math.cos(p.heading),fZ=Math.sin(p.heading),nX=-fZ,nZ=fX;
@@ -83,7 +85,7 @@ function tick(r,dt,input,tyres){
  if(brake>0&&(u*newU<0||Math.abs(u)<.1)&&Math.abs(u)<1.5&&Math.abs(drive)<brakeForce||Math.hypot(p.vx,p.vz)<.06&&throttle===0&&Math.abs(grade)<.012){p.vx=p.vz=p.yawRate=0;p.longAcceleration=p.lateralAcceleration=0;}
  p.heading=wrap(p.heading+p.yawRate*dt);p.x+=p.vx*dt;p.z+=p.vz*dt;project(r);
  const s=((p.d%r.track.length)+r.track.length)%r.track.length,pitSide=s>r.track.length-375||s<175;
- const minLane=-10.2,maxLane=pitSide?17.4:10.2;
+ const bounds=r.track.boundsAt?.(p.d),minLane=bounds?.minLane??-10.2,maxLane=bounds?.maxLane??(pitSide?17.4:10.2);
  if(p.lane<minLane||p.lane>maxLane){const sign=p.lane<minLane?-1:1,wall=sign<0?minLane:maxLane,t=r.track.at(p.d),out=(p.vx*t.nx+p.vz*t.nz)*sign;p.lane=wall-sign*.05;p.x=t.x+t.nx*p.lane;p.z=t.z+t.nz*p.lane;if(out>0){p.vx-=t.nx*sign*out*1.18;p.vz-=t.nz*sign*out*1.18;if(out>.7)r.collide(.04+out/100,false);}project(r);}
  p.speed=Math.hypot(p.vx,p.vz);p.forwardSpeed=p.vx*Math.cos(p.heading)+p.vz*Math.sin(p.heading);p._lastSpeed=p.speed;
  const regenWatts=brake>0?Math.min(120000,(Math.abs(fxF)+Math.abs(Math.min(0,fxR*direction)))*Math.abs(u)*.25):0;
