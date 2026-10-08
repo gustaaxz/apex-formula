@@ -42,7 +42,10 @@ function contact(a,b){const dx=b.x-a.x,dz=b.z-a.z;if(dx*dx+dz*dz>40)return null;
  for(const [p,f] of [[a,af],[b,bf]]){const along=clamp((centre.x-p.x)*f.x+(centre.z-p.z)*f.z,-2.5,2.5);point.x+=(p.x+along*f.x-centre.x)*.5;point.z+=(p.z+along*f.z-centre.z)*.5;}
  return {depth,normal,point};
 }
-function commit(r,p){project(r,p);const u=p.vx*Math.cos(p.heading)+p.vz*Math.sin(p.heading);if(p===r.player){p.speed=Math.hypot(p.vx,p.vz);p.forwardSpeed=u;p._lastSpeed=p.speed;}else{p.speed=Math.max(0,u);p.contactVX=p.vx-Math.cos(p.heading)*p.speed;p.contactVZ=p.vz-Math.sin(p.heading)*p.speed;p.contactYaw=p.yaw;p.contactYawRate=p.yawRate;}}
+function commit(r,p){project(r,p);const u=p.vx*Math.cos(p.heading)+p.vz*Math.sin(p.heading);if(p===r.player){p.speed=Math.hypot(p.vx,p.vz);p.forwardSpeed=u;p._lastSpeed=p.speed;}else{const q=r.track.at(p.d);p.speed=Math.max(0,p.vx*q.tx+p.vz*q.tz);p.contactVX=p.vx-q.tx*p.speed;p.contactVZ=p.vz-q.tz*p.speed;p.contactYaw=p.yaw;p.contactYawRate=p.yawRate;}}
+// Every car shares the visible circuit barriers. Contact separation must not
+// push an opponent (or the player) through a wall after its movement step.
+function walls(r,p){const bounds=r.track.boundsAt?.(p.d);if(!bounds)return;const lane=clamp(p.lane,bounds.minLane,bounds.maxLane);if(lane===p.lane)return;const q=r.track.at(p.d),oldLane=p.lane,out=p.vx*q.nx+p.vz*q.nz;p.x+=q.nx*(lane-oldLane);p.z+=q.nz*(lane-oldLane);if((oldLane-lane)*out>0){p.vx-=q.nx*out*1.18;p.vz-=q.nz*out*1.18;p.yawRate*=.65;}commit(r,p);}
 function collisions(r){for(let i=0;i<r.cars.length;i++)for(let j=i+1;j<r.cars.length;j++){const a=r.cars[i],b=r.cars[j];if(!a._worldReady&&!a._contactReady)Object.assign(a,pose(r,a),{_contactReady:true});if(!b._worldReady&&!b._contactReady)Object.assign(b,pose(r,b),{_contactReady:true});const hit=contact(a,b);if(!hit)continue;
  const n=hit.normal,ra={x:hit.point.x-a.x,z:hit.point.z-a.z},rb={x:hit.point.x-b.x,z:hit.point.z-b.z},ma=800+(a.fuel||0),mb=800+(b.fuel||0),ia=ma*2.4,ib=mb*2.4;
  const cross=(v,w)=>v.x*w.z-v.z*w.x,va={x:a.vx-(a.yawRate||0)*ra.z,z:a.vz+(a.yawRate||0)*ra.x},vb={x:b.vx-(b.yawRate||0)*rb.z,z:b.vz+(b.yawRate||0)*rb.x},relative=(vb.x-va.x)*n.x+(vb.z-va.z)*n.z;
@@ -51,7 +54,7 @@ function collisions(r){for(let i=0;i<r.cars.length;i++)for(let j=i+1;j<r.cars.le
   a.vx-=J.x/ma;a.vz-=J.z/ma;b.vx+=J.x/mb;b.vz+=J.z/mb;a.yawRate=(a.yawRate||0)-cross(ra,J)/ia;b.yawRate=(b.yawRate||0)+cross(rb,J)/ib;
   const key=a.id+':'+b.id;r.contactCooldowns ||= {};if((r.contactCooldowns[key]||0)<=r.time&&-relative>.7){r.contactCooldowns[key]=r.time+.6;const damage=clamp(-relative/95,.003,.8);for(const p of [a,b]){if(r.config.damage){if(p!==r.player)p.damage=clamp((p.damage||0)+damage,0,1);const f={x:Math.cos(p.heading),z:Math.sin(p.heading)},arm=p===a?ra:rb;if(arm.x*f.x+arm.z*f.z>0)p.frontWingDamage=clamp((p.frontWingDamage||0)+damage,0,1);else p.rearWingDamage=clamp((p.rearWingDamage||0)+damage,0,1);}}if(a===r.player||b===r.player)r.collide(damage,false);r.contactCount=(r.contactCount||0)+1;}
  }
- const correction=Math.max(0,hit.depth-.002)*.8/(1/ma+1/mb);a.x-=n.x*correction/ma;a.z-=n.z*correction/ma;b.x+=n.x*correction/mb;b.z+=n.z*correction/mb;commit(r,a);commit(r,b);
+ const correction=Math.max(0,hit.depth-.002)*.8/(1/ma+1/mb);a.x-=n.x*correction/ma;a.z-=n.z*correction/ma;b.x+=n.x*correction/mb;b.z+=n.z*correction/mb;commit(r,a);commit(r,b);walls(r,a);walls(r,b);
 }}
-root.ApexChassis={CORNERS,SPRING,DAMPER,init,road,aero,step,pose,project,contact,collisions};if(typeof module!=='undefined')module.exports=root.ApexChassis;
+root.ApexChassis={CORNERS,SPRING,DAMPER,init,road,aero,step,pose,project,contact,walls,collisions};if(typeof module!=='undefined')module.exports=root.ApexChassis;
 })(typeof window!=='undefined'?window:globalThis);
