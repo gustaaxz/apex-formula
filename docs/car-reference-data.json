@@ -1,0 +1,329 @@
+{
+  "fetched": "2026-10-08",
+  "provider": "OpenF1 — unofficial public distributor of historical timing telemetry",
+  "documentation": "https://openf1.org/docs/",
+  "source": "https://api.openf1.org/v1/car_data?session_key=9159&driver_number=55",
+  "session": {
+    "session_key": 9159,
+    "session_type": "Practice",
+    "session_name": "Practice 2",
+    "date_start": "2023-09-15T13:00:00+00:00",
+    "date_end": "2023-09-15T14:00:00+00:00",
+    "meeting_key": 1219,
+    "circuit_key": 61,
+    "circuit_short_name": "Singapore",
+    "country_key": 157,
+    "country_code": "SGP",
+    "country_name": "Singapore",
+    "location": "Marina Bay",
+    "gmt_offset": "08:00:00",
+    "year": 2023,
+    "is_cancelled": false
+  },
+  "driver": {
+    "meeting_key": 1219,
+    "session_key": 9159,
+    "driver_number": 55,
+    "broadcast_name": "C SAINZ",
+    "full_name": "Carlos SAINZ",
+    "name_acronym": "SAI",
+    "team_name": "Ferrari",
+    "team_colour": "F91536",
+    "first_name": "Carlos",
+    "last_name": "Sainz",
+    "headshot_url": "https://www.formula1.com/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png.transform/1col/image.png",
+    "country_code": "ESP"
+  },
+  "filter": "same gear in adjacent samples, speed >40 km/h, RPM >5000, throttle >25%, brake off; RPM/speed within 8% of gear median",
+  "notice": "Observed speeds are session data, not gear maximums. RPM/speed medians infer effective gearing; tyre radius, wheelspin, synchronisation and driver shifts introduce uncertainty. These are not team-issued gear tooth counts.",
+  "gears": [
+    {
+      "gear": 1,
+      "samples": 533,
+      "rpmPerKph": 115.7119,
+      "observedSpeedKph": {
+        "min": 41,
+        "p10": 59,
+        "median": 60,
+        "p90": 79,
+        "max": 99
+      },
+      "inferredSpeedAt11500rpmKph": 99.4,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:00:56.962000+00:00",
+          "speed": 50,
+          "rpm": 5920,
+          "n_gear": 1,
+          "throttle": 29
+        },
+        {
+          "date": "2023-09-15T13:09:47.803000+00:00",
+          "speed": 88,
+          "rpm": 10006,
+          "n_gear": 1,
+          "throttle": 41
+        },
+        {
+          "date": "2023-09-15T13:29:58.647000+00:00",
+          "speed": 60,
+          "rpm": 6773,
+          "n_gear": 1,
+          "throttle": 31
+        }
+      ]
+    },
+    {
+      "gear": 2,
+      "samples": 742,
+      "rpmPerKph": 88.7011,
+      "observedSpeedKph": {
+        "min": 57,
+        "p10": 70,
+        "median": 91,
+        "p90": 109,
+        "max": 131
+      },
+      "inferredSpeedAt11500rpmKph": 129.6,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:25.882000+00:00",
+          "speed": 85,
+          "rpm": 7676,
+          "n_gear": 2,
+          "throttle": 47
+        },
+        {
+          "date": "2023-09-15T13:12:16.964000+00:00",
+          "speed": 77,
+          "rpm": 6907,
+          "n_gear": 2,
+          "throttle": 30
+        },
+        {
+          "date": "2023-09-15T13:28:57.927000+00:00",
+          "speed": 113,
+          "rpm": 9540,
+          "n_gear": 2,
+          "throttle": 45
+        }
+      ]
+    },
+    {
+      "gear": 3,
+      "samples": 1362,
+      "rpmPerKph": 75.8714,
+      "observedSpeedKph": {
+        "min": 74,
+        "p10": 92,
+        "median": 117,
+        "p90": 141,
+        "max": 163
+      },
+      "inferredSpeedAt11500rpmKph": 151.6,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:28.041000+00:00",
+          "speed": 141,
+          "rpm": 10944,
+          "n_gear": 3,
+          "throttle": 73
+        },
+        {
+          "date": "2023-09-15T13:29:38.247000+00:00",
+          "speed": 118,
+          "rpm": 8607,
+          "n_gear": 3,
+          "throttle": 30
+        },
+        {
+          "date": "2023-09-15T13:48:09.451000+00:00",
+          "speed": 129,
+          "rpm": 10112,
+          "n_gear": 3,
+          "throttle": 89
+        }
+      ]
+    },
+    {
+      "gear": 4,
+      "samples": 1205,
+      "rpmPerKph": 64.1579,
+      "observedSpeedKph": {
+        "min": 104,
+        "p10": 127,
+        "median": 157,
+        "p90": 184,
+        "max": 201
+      },
+      "inferredSpeedAt11500rpmKph": 179.2,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:29.001000+00:00",
+          "speed": 171,
+          "rpm": 10764,
+          "n_gear": 4,
+          "throttle": 80
+        },
+        {
+          "date": "2023-09-15T13:29:20.847000+00:00",
+          "speed": 156,
+          "rpm": 9542,
+          "n_gear": 4,
+          "throttle": 46
+        },
+        {
+          "date": "2023-09-15T13:50:01.611000+00:00",
+          "speed": 138,
+          "rpm": 9120,
+          "n_gear": 4,
+          "throttle": 72
+        }
+      ]
+    },
+    {
+      "gear": 5,
+      "samples": 696,
+      "rpmPerKph": 53.4306,
+      "observedSpeedKph": {
+        "min": 164,
+        "p10": 182,
+        "median": 207,
+        "p90": 220,
+        "max": 231
+      },
+      "inferredSpeedAt11500rpmKph": 215.2,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:30.042000+00:00",
+          "speed": 203,
+          "rpm": 10839,
+          "n_gear": 5,
+          "throttle": 99
+        },
+        {
+          "date": "2023-09-15T13:31:12.928000+00:00",
+          "speed": 184,
+          "rpm": 9645,
+          "n_gear": 5,
+          "throttle": 50
+        },
+        {
+          "date": "2023-09-15T13:50:08.011000+00:00",
+          "speed": 211,
+          "rpm": 11409,
+          "n_gear": 5,
+          "throttle": 100
+        }
+      ]
+    },
+    {
+      "gear": 6,
+      "samples": 659,
+      "rpmPerKph": 45.9492,
+      "observedSpeedKph": {
+        "min": 191,
+        "p10": 233,
+        "median": 245,
+        "p90": 256,
+        "max": 266
+      },
+      "inferredSpeedAt11500rpmKph": 250.3,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:39.562000+00:00",
+          "speed": 238,
+          "rpm": 11009,
+          "n_gear": 6,
+          "throttle": 100
+        },
+        {
+          "date": "2023-09-15T13:35:13.408000+00:00",
+          "speed": 245,
+          "rpm": 11325,
+          "n_gear": 6,
+          "throttle": 100
+        },
+        {
+          "date": "2023-09-15T13:52:11.252000+00:00",
+          "speed": 235,
+          "rpm": 11096,
+          "n_gear": 6,
+          "throttle": 100
+        }
+      ]
+    },
+    {
+      "gear": 7,
+      "samples": 593,
+      "rpmPerKph": 40.1028,
+      "observedSpeedKph": {
+        "min": 251,
+        "p10": 267,
+        "median": 277,
+        "p90": 286,
+        "max": 300
+      },
+      "inferredSpeedAt11500rpmKph": 286.8,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:41.281000+00:00",
+          "speed": 267,
+          "rpm": 10660,
+          "n_gear": 7,
+          "throttle": 99
+        },
+        {
+          "date": "2023-09-15T13:42:19.530000+00:00",
+          "speed": 271,
+          "rpm": 10842,
+          "n_gear": 7,
+          "throttle": 100
+        },
+        {
+          "date": "2023-09-15T13:52:13.571000+00:00",
+          "speed": 272,
+          "rpm": 10906,
+          "n_gear": 7,
+          "throttle": 99
+        }
+      ]
+    },
+    {
+      "gear": 8,
+      "samples": 82,
+      "rpmPerKph": 35.5677,
+      "observedSpeedKph": {
+        "min": 287,
+        "p10": 298,
+        "median": 304,
+        "p90": 312,
+        "max": 315
+      },
+      "inferredSpeedAt11500rpmKph": 323.3,
+      "evidence": [
+        {
+          "date": "2023-09-15T13:01:44.122000+00:00",
+          "speed": 287,
+          "rpm": 10222,
+          "n_gear": 8,
+          "throttle": 100
+        },
+        {
+          "date": "2023-09-15T13:08:19.523000+00:00",
+          "speed": 313,
+          "rpm": 11117,
+          "n_gear": 8,
+          "throttle": 99
+        },
+        {
+          "date": "2023-09-15T13:26:15.886000+00:00",
+          "speed": 302,
+          "rpm": 10807,
+          "n_gear": 8,
+          "throttle": 99
+        }
+      ]
+    }
+  ]
+}
