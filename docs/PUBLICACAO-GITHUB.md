@@ -4,7 +4,7 @@ Data: 08/10/2026. Repositório: [gustaaxz/apex-formula](https://github.com/gusta
 
 A publicação inclui código do jogo, testes, ferramentas de calibração, telemetria pública, relatórios e imagens de evidência. O histórico remoto existente é preservado. Os 14 arquivos da versão inicial no GitHub foram comparados com a versão inicial local e correspondem. Os 49 testes da versão atual foram executados novamente antes do envio: 49 aprovados, nenhum reprovado.
 
-Os dez commits abaixo agrupam mudanças por assunto. A mensagem de cada commit explica todos os arquivos que ele altera. Os registros das revisões 0.1 e 0.2 são históricos; seus números e estados de publicação se referem àquelas entregas.
+Os onze commits abaixo agrupam mudanças por assunto. A mensagem de cada commit explica todos os arquivos que ele altera. Os registros das revisões 0.1 e 0.2 são históricos; seus números e estados de publicação se referem àquelas entregas.
 
 As seis pistas continuam fictícias. Os parâmetros de suspensão, aerodinâmica e pneus são aproximações documentadas, e os ensaios não certificam fidelidade a um carro real.
 
@@ -88,3 +88,11 @@ As seis pistas continuam fictícias. Os parâmetros de suspensão, aerodinâmica
 - **docs/ensaio-pneus-0.3.png**: Guarda evidência visual da bancada de frenagem térmica atual.
 - **docs/PUBLICACAO-GITHUB.md**: Lista os dez commits por assunto e descreve cada arquivo incluído, com repositório, validação e escopo da publicação.
 - **docs/revision-manifest-0.3.json**: Atualiza o destino da revisão 0.3 e os hashes SHA-256 de todos os arquivos entregues, excluindo o próprio manifesto para evitar referência circular.
+
+
+## 11. docs: conferir integridade dos arquivos publicados
+
+- **docs/revision-manifest-0.3.json**: alinha o SHA-256 de JOGAR.cmd com os bytes preservados no GitHub, recalcula o hash deste documento e informa que os hashes correspondem aos bytes do Download ZIP. Atributos de checkout podem converter finais de linha em arquivos de texto.
+- **docs/PUBLICACAO-GITHUB.md**: registra a comparação dos 57 arquivos publicados com a pasta local e explica este commit final de integridade.
+
+A comparação confirmou os mesmos 57 caminhos e conteúdos, incluindo imagens, biblioteca 3D, dados de telemetria, testes e documentos. A única diferença de bytes antes deste ajuste era JOGAR.cmd: o arquivo já publicado usa LF, e a pasta local usa CRLF. Seu conteúdo é igual após normalizar finais de linha; os atributos do Git declaram CRLF para checkout de arquivos .cmd. O manifesto considera os bytes publicados, e o ZIP de distribuição local preserva essa mesma cópia do arquivo.

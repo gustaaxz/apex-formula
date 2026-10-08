@@ -30,7 +30,7 @@
     "docs/painel-auditoria.jpg": "8f1b2bdabb648a48b3f46a5b67e0e6124fe830d0e8d1217e165a81b961998ddd",
     "docs/PLANO-DE-MELHORIAS.md": "659572262bb77650fa19ad73180372933d8f3d91f5660a2a2e5d9063bf4633ba",
     "docs/preview.png": "c3e19d43a5023679c9dc8032d2d5852713978a33d0583f76f3f2f1ff25a5e767",
-    "docs/PUBLICACAO-GITHUB.md": "e5a3f55ac6e85059dda08b9e159b016e28e9e2fcd763bd15f493938df47c8c5d",
+    "docs/PUBLICACAO-GITHUB.md": "8e6936e57cfcf9eeba49a743b3768dbf1c37007c565846aa8c590cfcd811e279",
     "docs/realism-measurements.json": "e5973a3be5ab64e16c9fcb27b505fc1c46c65e8d5462d44f6232de377c6e5e80",
     "docs/revision-manifest.json": "5c5c9fd43feb9cd0d581ff889e7a4cef7915665a0da30d76911508b8d1b46db4",
     "docs/sainz-singapore-2023-fp2.json.gz": "d6268f888b7cd287b9f55532b60a26bb839183c6073fa32e8f66a6f7657dfddd",
@@ -40,7 +40,7 @@
     "docs/TESTES-0.3.txt": "2a73ea4f2afe913c1102f2b15cd68548f6f65731b12d59b6c7ed8cf2e1cc0047",
     "game.js": "e5562e249c0d15993542e9c1fe80c6d91fff28d5bb529e09a6931c88f85c04e6",
     "index.html": "8ff20840b495a5df6ce5810deede336d131a942870df51559f0b47e923e89b44",
-    "JOGAR.cmd": "c369a077a253e26e89b85071fb50bb426ab159e49027572d5f1f18497386f266",
+    "JOGAR.cmd": "0edbd8f5b22789c3f11971244871f1b36e23f9e710fdc8b25ca6429165ec81be",
     "LEIA-ME.md": "a0ff9585727189b7de28124fefa9dea707ba79d038b6540befaf72f754dcf1ba",
     "package.json": "a32dd9dc75c5145c05d91594525b963653f8cd1073b215f7b9edcf929b050e4f",
     "README.md": "a0ff9585727189b7de28124fefa9dea707ba79d038b6540befaf72f754dcf1ba",
@@ -59,5 +59,6 @@
     "vehicle.js": "8ea8f983a97935896b53906113fddda646522dbcd4a0b57c6a9bc37ab872b3af",
     "vendor/THREE-LICENSE.txt": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d",
     "vendor/three.min.js": "170c6789f43217c96b3170f4b42fafe135de7f7cd48497a4218f9757ee1d49fa"
-  }
+  },
+  "hashFormat": "Raw bytes in GitHub Download ZIP; Git checkout attributes may convert text line endings."
 }
