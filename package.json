@@ -1,13 +1,14 @@
 {
   "name": "apex-formula",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "private": true,
-  "description": "Jogo local de corrida 3D de monopostos com cockpit, IA e estratégia.",
+  "description": "Jogo local de corrida 3D de monopostos com cockpit, IA e estratÃ©gia.",
   "scripts": {
-    "test": "node --test tests/simulation.test.cjs tests/car.test.cjs tests/dynamics.test.cjs",
+    "test": "node --test tests/simulation.test.cjs tests/car.test.cjs tests/dynamics.test.cjs tests/tracks.test.cjs tests/timing.test.cjs tests/launch.test.cjs",
     "audit:car": "node tests/car-audit.cjs",
     "audit:realism": "node tests/realism-audit.cjs",
-    "audit:dynamics": "node tests/dynamics-audit.cjs"
+    "audit:dynamics": "node tests/dynamics-audit.cjs",
+    "audit:maps": "node tests/maps-audit.cjs"
   },
   "engines": {
     "node": ">=20"
