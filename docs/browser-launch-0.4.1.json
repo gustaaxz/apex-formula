@@ -1,0 +1,213 @@
+{
+  "protocol": "Somente acelerador W, sem teclas de embreagem",
+  "grid": {
+    "track": "Costa Verde",
+    "phase": "start",
+    "speedKph": 0,
+    "lane": -2.4,
+    "yaw": 0,
+    "metres": -40,
+    "gear": 1,
+    "rpm": 4000,
+    "clutch": 1,
+    "engineRunning": true,
+    "pitch": 0,
+    "roll": 0,
+    "heave": 0,
+    "wheelLoads": [
+      2173,
+      2173,
+      1839,
+      1839
+    ],
+    "wheelTravel": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "render": {
+      "body": {
+        "heave": 0,
+        "pitch": 0,
+        "roll": 0
+      },
+      "wheels": [
+        0.44,
+        0.44,
+        0.44,
+        0.44
+      ],
+      "links": [
+        0.7527947927556353,
+        0.7915806970865321,
+        0.7527947927556354,
+        0.7915806970865321,
+        0.7527947927556353,
+        0.7915806970865321,
+        0.7527947927556354,
+        0.7915806970865321
+      ]
+    },
+    "temp": 70,
+    "frontTemp": 70,
+    "rearTemp": 70,
+    "pitLimiter": false,
+    "battery": 100,
+    "damage": 0,
+    "collisions": 0,
+    "fps": 60,
+    "assists": false,
+    "brakeAssist": false,
+    "tc": false,
+    "abs": false
+  },
+  "start": {
+    "track": "Costa Verde",
+    "phase": "race",
+    "speedKph": 1.5,
+    "lane": -2.4,
+    "yaw": 0,
+    "metres": -39.98,
+    "gear": 1,
+    "rpm": 12498.233332093856,
+    "clutch": 0.37318962606607253,
+    "engineRunning": true,
+    "pitch": 0.0008231496963842531,
+    "roll": 0,
+    "heave": 0.00007775689754550124,
+    "wheelLoads": [
+      1920,
+      1920,
+      2099,
+      2099
+    ],
+    "wheelTravel": [
+      -0.00135,
+      -0.00135,
+      0.00145,
+      0.00145
+    ],
+    "aero": {
+      "front": 0.19031268673858753,
+      "rear": 0.22980939364139275,
+      "frontWing": 0.08409914960581137,
+      "rearWing": 0.10512393700726422,
+      "floor": 0.2308989937669047,
+      "drag": 0.11967955905442387,
+      "wake": 0,
+      "frontHeight": 0.06635054011427882,
+      "rearHeight": 0.07355303746439895,
+      "floorFactor": 0.9983842982270851
+    },
+    "render": {
+      "body": {
+        "heave": 0.00007775689754550124,
+        "pitch": 0.0008231496963842531,
+        "roll": 0
+      },
+      "wheels": [
+        0.44,
+        0.44,
+        0.44,
+        0.44
+      ],
+      "links": [
+        0.7529353867262945,
+        0.7918351350556373,
+        0.7528966134685834,
+        0.7910485869108158,
+        0.7529353867262945,
+        0.7918351350556373,
+        0.7528966134685834,
+        0.7910485869108158
+      ]
+    },
+    "temp": 70.04211572090705,
+    "frontTemp": 69.97809316625282,
+    "rearTemp": 70.10613827556129,
+    "pitLimiter": false,
+    "battery": 100,
+    "damage": 0,
+    "collisions": 0,
+    "fps": 60,
+    "assists": false,
+    "brakeAssist": false,
+    "tc": false,
+    "abs": false
+  },
+  "end": {
+    "track": "Costa Verde",
+    "phase": "race",
+    "speedKph": 108.1,
+    "lane": -2.4,
+    "yaw": 0,
+    "metres": 43.53,
+    "gear": 1,
+    "rpm": 12499.22081237476,
+    "clutch": 0,
+    "engineRunning": true,
+    "pitch": 0.00027852491831806736,
+    "roll": 0,
+    "heave": -0.005209631349490849,
+    "wheelLoads": [
+      2691,
+      2691,
+      2477,
+      2477
+    ],
+    "wheelTravel": [
+      0.00474,
+      0.00474,
+      0.00577,
+      0.00577
+    ],
+    "aero": {
+      "front": 1046.1106348484939,
+      "rear": 1263.6649262802816,
+      "frontWing": 468.17495059265406,
+      "rearWing": 585.2186882408175,
+      "floor": 1256.3819222953039,
+      "drag": 666.2489681510847,
+      "wake": 0,
+      "frontHeight": 0.06026409160761195,
+      "rearHeight": 0.06923009936738722,
+      "floorFactor": 0.9758449335736358
+    },
+    "render": {
+      "body": {
+        "heave": -0.005209631349490849,
+        "pitch": 0.00027852491831806736,
+        "roll": 0
+      },
+      "wheels": [
+        0.44,
+        0.44,
+        0.44,
+        0.44
+      ],
+      "links": [
+        0.7527878494928515,
+        0.7902899169942404,
+        0.7527815708678489,
+        0.7900300475959818,
+        0.7527878494928515,
+        0.7902899169942404,
+        0.7527815708678489,
+        0.7900300475959818
+      ]
+    },
+    "temp": 75.32508945518995,
+    "frontTemp": 70.30430775747041,
+    "rearTemp": 80.3458711529095,
+    "pitLimiter": false,
+    "battery": 97.66185731702826,
+    "damage": 0,
+    "collisions": 0,
+    "fps": 60,
+    "assists": false,
+    "brakeAssist": false,
+    "tc": false,
+    "abs": false
+  }
+}

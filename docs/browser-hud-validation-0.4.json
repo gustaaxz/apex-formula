@@ -1,0 +1,156 @@
+{
+  "method": "DOM e screenshots após a largada, sessão contra o relógio; leitura e controles em três tamanhos.",
+  "keyboardProtocol": "Laboratório: W + dez J iniciou movimento e passou linha de largada; S por dois segundos parou. Indicador brakeBar confirmou width:100%.",
+  "screens": [
+    {
+      "bodyWidth": 320,
+      "clutch": {
+        "bottom": 564,
+        "display": "block",
+        "height": 16,
+        "left": 28,
+        "right": 177,
+        "top": 548,
+        "width": 149
+      },
+      "corner": {
+        "bottom": 125.78125,
+        "display": "flex",
+        "height": 49.78125,
+        "left": 160,
+        "right": 305,
+        "top": 76,
+        "width": 145
+      },
+      "height": 720,
+      "lap": {
+        "bottom": 356,
+        "display": "block",
+        "height": 211,
+        "left": 171,
+        "right": 305,
+        "top": 145,
+        "width": 134
+      },
+      "map": {
+        "bottom": 570,
+        "display": "block",
+        "height": 203,
+        "left": 182,
+        "right": 312,
+        "top": 367,
+        "width": 130
+      },
+      "touch": {
+        "bottom": 711,
+        "display": "grid",
+        "height": 37,
+        "left": 15,
+        "right": 305,
+        "top": 674,
+        "width": 290
+      },
+      "width": 320
+    },
+    {
+      "bodyWidth": 390,
+      "clutch": {
+        "bottom": 688,
+        "display": "block",
+        "height": 16,
+        "left": 28,
+        "right": 192,
+        "top": 672,
+        "width": 164
+      },
+      "corner": {
+        "bottom": 125.78125,
+        "display": "flex",
+        "height": 49.78125,
+        "left": 230,
+        "right": 375,
+        "top": 76,
+        "width": 145
+      },
+      "height": 844,
+      "lap": {
+        "bottom": 356,
+        "display": "block",
+        "height": 211,
+        "left": 230,
+        "right": 375,
+        "top": 145,
+        "width": 145
+      },
+      "map": {
+        "bottom": 694,
+        "display": "block",
+        "height": 203,
+        "left": 252,
+        "right": 382,
+        "top": 491,
+        "width": 130
+      },
+      "touch": {
+        "bottom": 835,
+        "display": "grid",
+        "height": 37,
+        "left": 15,
+        "right": 375,
+        "top": 798,
+        "width": 360
+      },
+      "width": 390
+    },
+    {
+      "bodyWidth": 896,
+      "clutch": {
+        "bottom": 331,
+        "display": "block",
+        "height": 16,
+        "left": 51,
+        "right": 204,
+        "top": 315,
+        "width": 153
+      },
+      "corner": {
+        "bottom": 144,
+        "display": "flex",
+        "height": 82,
+        "left": 343,
+        "right": 553,
+        "top": 62,
+        "width": 210
+      },
+      "height": 414,
+      "lap": {
+        "bottom": 226,
+        "display": "block",
+        "height": 161,
+        "left": 661,
+        "right": 861,
+        "top": 65,
+        "width": 200
+      },
+      "map": {
+        "bottom": 400,
+        "display": "block",
+        "height": 169,
+        "left": 712,
+        "right": 867,
+        "top": 231,
+        "width": 155
+      },
+      "touch": {
+        "bottom": 0,
+        "display": "none",
+        "height": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "width": 0
+      },
+      "width": 896
+    }
+  ]
+}

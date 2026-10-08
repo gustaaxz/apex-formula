@@ -1,0 +1,916 @@
+{
+  "version": "0.4.0",
+  "method": "Controlador exclusivo dos testes, entradas explícitas a 120 Hz; física subdividida a 240 Hz. Seco: medium, teto solicitado 52 m/s. Chuva: wet, 35 m/s. Não representa ensaio humano ou telemetria de uma pista real.",
+  "circuits": [
+    {
+      "id": "APX-01",
+      "name": "Costa Verde",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 6860.818599713797,
+        "turns": 14,
+        "minRadiusM": 53.44874575082956,
+        "minimumNonlocalRoadSeparationM": 111.61151971136118,
+        "maxGradePercent": 2.443960936916833,
+        "pitCurvature": 4.72592940428008e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 800.9788220916414,
+          "radiusM": 216.24006183921762
+        },
+        {
+          "number": 2,
+          "name": "Curva 2",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 1388.96327576191,
+          "radiusM": 88.00686245339335
+        },
+        {
+          "number": 3,
+          "name": "Curva 3",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 1889.9500296544347,
+          "radiusM": 92.82744766023157
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 2090.9447153478427,
+          "radiusM": 95.69088051178429
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 2396.9366249109416,
+          "radiusM": 249.38595676606874
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3017.920206083113,
+          "radiusM": 72.26387306574534
+        },
+        {
+          "number": 7,
+          "name": "Esses da Mata",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 3236.914415868468,
+          "radiusM": 53.44874575082956
+        },
+        {
+          "number": 8,
+          "name": "Curva 8",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 3800.8995040828077,
+          "radiusM": 111.03436299195566
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 4379.884195707103,
+          "radiusM": 97.63391652191338
+        },
+        {
+          "number": 10,
+          "name": "Curva 10",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 4664.876660496263,
+          "radiusM": 75.17979449026797
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 4925.869759829495,
+          "radiusM": 134.46362452092117
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 5219.8619866646295,
+          "radiusM": 103.49930506726736
+        },
+        {
+          "number": 13,
+          "name": "Curva 13",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 5429.8564344040105,
+          "radiusM": 157.83331837197053
+        },
+        {
+          "number": 14,
+          "name": "Curva 14",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 5693.849454419234,
+          "radiusM": 92.43547406917348
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 231.04735701957125,
+        "maxAbsLaneM": 0.8946952808816033,
+        "maxSpeedKph": 183.55759539354415,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 240.65206973857778,
+        "maxAbsLaneM": 0.7924785664264229,
+        "maxSpeedKph": 124.92268593646669,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    },
+    {
+      "id": "APX-02",
+      "name": "Marina Neon",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 7443.644837376312,
+        "turns": 15,
+        "minRadiusM": 50.93322414498518,
+        "minimumNonlocalRoadSeparationM": 110.43376919113851,
+        "maxGradePercent": 0,
+        "pitCurvature": 4.604975154649706e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 803.7456955748798,
+          "radiusM": 145.50906338091895
+        },
+        {
+          "number": 2,
+          "name": "Curva 2",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 1430.5473760791704,
+          "radiusM": 72.25715317412244
+        },
+        {
+          "number": 3,
+          "name": "Curva 3",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 1970.3765745996122,
+          "radiusM": 50.93322414498518
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 2258.285480477181,
+          "radiusM": 60.55261983705263
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 2570.186795177881,
+          "radiusM": 231.8622756170161
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3131.009351418562,
+          "radiusM": 75.83890349757334
+        },
+        {
+          "number": 7,
+          "name": "Curva 7",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 3418.918257296131,
+          "radiusM": 55.520055101983395
+        },
+        {
+          "number": 8,
+          "name": "Curva 8",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3967.7446091252464,
+          "radiusM": 78.91584591795299
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 4312.6354859577505,
+          "radiusM": 150.23150044276014
+        },
+        {
+          "number": 10,
+          "name": "Chicane da Marina",
+          "direction": "DIREITA",
+          "kind": "FECHADA",
+          "apexM": 4642.531107275799,
+          "radiusM": 54.58162927751147
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 5233.344174545393,
+          "radiusM": 69.28503837140113
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 5551.243591451876,
+          "radiusM": 112.4086136979976
+        },
+        {
+          "number": 13,
+          "name": "Curva 13",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 5806.16293519764,
+          "radiusM": 81.78501960777598
+        },
+        {
+          "number": 14,
+          "name": "Curva 14",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 6025.093665708708,
+          "radiusM": 111.56961181979595
+        },
+        {
+          "number": 15,
+          "name": "Curva 15",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 6277.01395835158,
+          "radiusM": 89.40412723454763
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 267.530206135233,
+        "maxAbsLaneM": 0.88316673353834,
+        "maxSpeedKph": 183.55761559797656,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 276.52575898211353,
+        "maxAbsLaneM": 0.8137991204830183,
+        "maxSpeedKph": 124.92269997744563,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    },
+    {
+      "id": "APX-03",
+      "name": "Alta Velocità",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 6432.872103767926,
+        "turns": 13,
+        "minRadiusM": 36.17268704248385,
+        "minimumNonlocalRoadSeparationM": 98.74759756364007,
+        "maxGradePercent": 0,
+        "pitCurvature": 4.598970565035037e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 800.7351290004831,
+          "radiusM": 177.5562037611892
+        },
+        {
+          "number": 2,
+          "name": "Curva 2",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 1418.5307716001066,
+          "radiusM": 80.85191850703544
+        },
+        {
+          "number": 3,
+          "name": "Esses do Bosque",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 1610.46728192232,
+          "radiusM": 36.17268704248385
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 1820.3978400872404,
+          "radiusM": 139.23165153356595
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 2648.1240408517847,
+          "radiusM": 233.30220860160802
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 3049.9911093389187,
+          "radiusM": 113.83545070927798
+        },
+        {
+          "number": 7,
+          "name": "Curva 7",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 3373.8839705076534,
+          "radiusM": 63.44508831137405
+        },
+        {
+          "number": 8,
+          "name": "Curva 8",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3598.809568541497,
+          "radiusM": 69.63129275689592
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 4162.623067612998,
+          "radiusM": 64.8606505213245
+        },
+        {
+          "number": 10,
+          "name": "Curva 10",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 4432.53378525361,
+          "radiusM": 104.12412435762451
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 4786.416726160191,
+          "radiusM": 90.890906050502
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 5005.3443082464655,
+          "radiusM": 131.70276095363198
+        },
+        {
+          "number": 13,
+          "name": "Curva 13",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 5266.258001965723,
+          "radiusM": 83.63378023854477
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 214.0208433730698,
+        "maxAbsLaneM": 0.8767965083702685,
+        "maxSpeedKph": 183.55758817020347,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 226.66743000064972,
+        "maxAbsLaneM": 0.7721328458046981,
+        "maxSpeedKph": 124.92267822227754,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    },
+    {
+      "id": "APX-04",
+      "name": "Sierra Blanca",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 7095.688648309349,
+        "turns": 13,
+        "minRadiusM": 49.28473344111164,
+        "minimumNonlocalRoadSeparationM": 107.25806492985811,
+        "maxGradePercent": 7.348201406705078,
+        "pitCurvature": 4.601076180711747e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 1358.557463095577,
+          "radiusM": 93.47538578766554
+        },
+        {
+          "number": 2,
+          "name": "Curva do Mirante",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 1649.4627035376761,
+          "radiusM": 49.28473344111164
+        },
+        {
+          "number": 3,
+          "name": "Curva 3",
+          "direction": "ESQUERDA",
+          "kind": "RÁPIDA",
+          "apexM": 1958.362082563823,
+          "radiusM": 282.9918019288735
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 2498.186240085244,
+          "radiusM": 77.28205176171242
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 2804.0865960140495,
+          "radiusM": 101.5089106582057
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "FECHADA",
+          "apexM": 3097.9908595534903,
+          "radiusM": 49.46190829522093
+        },
+        {
+          "number": 7,
+          "name": "Curva 7",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 4015.691927339906,
+          "radiusM": 50.629583320820096
+        },
+        {
+          "number": 8,
+          "name": "Curva 8",
+          "direction": "DIREITA",
+          "kind": "FECHADA",
+          "apexM": 4372.575675923513,
+          "radiusM": 52.17069288130984
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 5026.362711143901,
+          "radiusM": 87.71085028494596
+        },
+        {
+          "number": 10,
+          "name": "Curva 10",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 5335.2620901700475,
+          "radiusM": 52.14229422330657
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "ESQUERDA",
+          "kind": "RÁPIDA",
+          "apexM": 5557.189799373298,
+          "radiusM": 117.19479474981307
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 5683.14876946163,
+          "radiusM": 123.45866725411294
+        },
+        {
+          "number": 13,
+          "name": "Curva 13",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 5929.068663443611,
+          "radiusM": 79.28069828854694
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 258.55735989167533,
+        "maxAbsLaneM": 0.8371141485914027,
+        "maxSpeedKph": 183.55761033370075,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 266.7820963791115,
+        "maxAbsLaneM": 0.7985775378172202,
+        "maxSpeedKph": 125.28416008095033,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    },
+    {
+      "id": "APX-05",
+      "name": "Dunas de Yas",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 7203.194920787364,
+        "turns": 14,
+        "minRadiusM": 51.510114760695075,
+        "minimumNonlocalRoadSeparationM": 110.20095736439767,
+        "maxGradePercent": 0,
+        "pitCurvature": 4.57449191788305e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 800.6881947752814,
+          "radiusM": 192.52671429857864
+        },
+        {
+          "number": 2,
+          "name": "Curva 2",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 1496.4172628946271,
+          "radiusM": 131.34996502700247
+        },
+        {
+          "number": 3,
+          "name": "Curva 3",
+          "direction": "ESQUERDA",
+          "kind": "RÁPIDA",
+          "apexM": 1814.2934750526042,
+          "radiusM": 137.64534434580705
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 2300.104289860078,
+          "radiusM": 166.26332681774846
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 2674.9583136312776,
+          "radiusM": 226.4411018276303
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3100.79248463536,
+          "radiusM": 72.67587938029932
+        },
+        {
+          "number": 7,
+          "name": "Curva 7",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 3697.560090479109,
+          "radiusM": 62.02120852185735
+        },
+        {
+          "number": 8,
+          "name": "Gancho das Dunas",
+          "direction": "DIREITA",
+          "kind": "FECHADA",
+          "apexM": 4018.4351348272553,
+          "radiusM": 51.510114760695075
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 4339.310179175402,
+          "radiusM": 246.5490643939755
+        },
+        {
+          "number": 10,
+          "name": "Curva 10",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 4723.16069951711,
+          "radiusM": 56.73058848383825
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 5026.042750724238,
+          "radiusM": 76.68583075791507
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "ESQUERDA",
+          "kind": "RÁPIDA",
+          "apexM": 5583.8255380957835,
+          "radiusM": 152.90356858384467
+        },
+        {
+          "number": 13,
+          "name": "Curva 13",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 5778.749630456807,
+          "radiusM": 134.09839281672578
+        },
+        {
+          "number": 14,
+          "name": "Curva 14",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 6036.649198811392,
+          "radiusM": 82.32210122110229
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 235.37958154040717,
+        "maxAbsLaneM": 0.8948686409333219,
+        "maxSpeedKph": 183.5576068588369,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 248.46837365260922,
+        "maxAbsLaneM": 0.8105407633256487,
+        "maxSpeedKph": 124.92268971268716,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    },
+    {
+      "id": "APX-06",
+      "name": "Silver Coast",
+      "fictional": true,
+      "geometry": {
+        "lengthM": 7263.897357214237,
+        "turns": 14,
+        "minRadiusM": 31.69699022833068,
+        "minimumNonlocalRoadSeparationM": 101.30468373796703,
+        "maxGradePercent": 0,
+        "pitCurvature": 4.616216598781907e-15,
+        "pitGradePercent": 0
+      },
+      "corners": [
+        {
+          "number": 1,
+          "name": "Curva 1",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 800.7682057705207,
+          "radiusM": 217.00451527834676
+        },
+        {
+          "number": 2,
+          "name": "Curva 2",
+          "direction": "DIREITA",
+          "kind": "RÁPIDA",
+          "apexM": 1112.6779188796374,
+          "radiusM": 200.62733842937376
+        },
+        {
+          "number": 3,
+          "name": "Curva 3",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 1484.5702691251226,
+          "radiusM": 101.2279173304597
+        },
+        {
+          "number": 4,
+          "name": "Curva 4",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 1799.479114091058,
+          "radiusM": 53.26649494046261
+        },
+        {
+          "number": 5,
+          "name": "Curva 5",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 2420.299408452473,
+          "radiusM": 95.69678158491031
+        },
+        {
+          "number": 6,
+          "name": "Curva 6",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3101.1023399502565,
+          "radiusM": 98.02533830631113
+        },
+        {
+          "number": 7,
+          "name": "Curva 7",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 3428.0077123434653,
+          "radiusM": 45.05728082510859
+        },
+        {
+          "number": 8,
+          "name": "Curva 8",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 3742.9165573094006,
+          "radiusM": 101.57179464600955
+        },
+        {
+          "number": 9,
+          "name": "Curva 9",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 4102.8123801276115,
+          "radiusM": 58.454745684402994
+        },
+        {
+          "number": 10,
+          "name": "Curva 10",
+          "direction": "ESQUERDA",
+          "kind": "TÉCNICA",
+          "apexM": 4387.729906525363,
+          "radiusM": 60.9117682295897
+        },
+        {
+          "number": 11,
+          "name": "Curva 11",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 4825.603157620853,
+          "radiusM": 60.62313301641619
+        },
+        {
+          "number": 12,
+          "name": "Curva 12",
+          "direction": "DIREITA",
+          "kind": "TÉCNICA",
+          "apexM": 5125.516343302696,
+          "radiusM": 73.76257992300367
+        },
+        {
+          "number": 13,
+          "name": "Esses do Farol",
+          "direction": "ESQUERDA",
+          "kind": "FECHADA",
+          "apexM": 5554.392198827732,
+          "radiusM": 31.69699022833068
+        },
+        {
+          "number": 14,
+          "name": "Curva 14",
+          "direction": "DIREITA",
+          "kind": "FECHADA",
+          "apexM": 5881.297571220941,
+          "radiusM": 42.96896131790857
+        }
+      ],
+      "dry": {
+        "finished": true,
+        "timeS": 269.60519708223035,
+        "maxAbsLaneM": 0.8389337142676738,
+        "maxSpeedKph": 183.55761875707097,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "wet": {
+        "finished": true,
+        "timeS": 278.6070321138893,
+        "maxAbsLaneM": 0.819487738966955,
+        "maxSpeedKph": 124.922701364699,
+        "collisions": 0,
+        "penaltyS": 0,
+        "valid": true
+      },
+      "pit": {
+        "serviced": true,
+        "exited": true,
+        "collisions": 0,
+        "penaltyS": 0,
+        "tyre": "hard"
+      }
+    }
+  ]
+}

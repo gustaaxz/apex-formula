@@ -5,7 +5,7 @@ Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próx
 ## Decisões do usuário
 
 - Implementar suspensão por roda, movimento da carroceria, colisões entre carros, aerodinâmica detalhada e embreagem manual de largada.
-- Prioridade atual: **o carro e a sensação de pilotagem**.
+- Prioridade atual: **os seis mapas originais, a circulação dos carros, curvas desafiadoras, cenários e HUD**, preservando o carro e a pilotagem manual.
 - Retirar assistência de pilotagem e corrigir transmissão e temperatura dos pneus.
 - Usar dados reais como referência, indicando as aproximações de calibração.
 - Guardar todas as mudanças necessárias; evoluir pistas e demais sistemas depois do carro.
@@ -27,7 +27,7 @@ Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próx
 | C09 — suspensão por roda e carroceria | Concluído em 0.3.0 | Quatro molas/amortecedores, contato independente, heave/pitch/roll e transferência de peso; braços e rodas acompanham no 3D. |
 | C10 — colisões entre carros | Concluído em 0.3.0 | Contatos orientados jogador/IA e IA/IA, impulso, atrito, rotação, separação e dano de asa. |
 | C11 — aerodinâmica por componente | Concluído em 0.3.0 | Assoalho sensível à altura/inclinação, asas, arrasto, DRS, vácuo/ar sujo e dano de asa. |
-| C12 — embreagem de largada | Concluído em 0.3.0 | Demanda manual, motor desacoplado no grid, dosagem, patinação, apagamento e reinício manual. |
+| C12 — largada | Revisado em 0.4.1 | Por solicitação posterior, foi retirada a exigência de embreagem manual; a saída usa apenas o acelerador, com acoplamento interno automático. |
 
 ## Próximas melhorias do carro
 
@@ -45,7 +45,8 @@ Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próx
 
 ## Integridade competitiva — depois da etapa do carro
 
-- [ ] Invalidar volta fora dos limites; impedir recordes e classificação com voltas inválidas (auditoria R12).
+- [x] Invalidar recorde após sair completamente da pista ou usar reposicionamento; cronometrar setores e delta por distância na versão 0.4.0.
+- [ ] Classificação por voltas realmente completadas, com regras e fiscalização detalhadas (parte restante de R12).
 - [ ] Registrar chegadas e reordenar resultado e pontos por penalidades de tempo (R13).
 - [ ] Evitar crédito indevido de volta ao reposicionar ou cruzar linha em sentido inverso.
 - [ ] Fazer adversários obedecerem à mesma física, combustível, pneus, ERS e danos do jogador.
@@ -54,7 +55,19 @@ Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próx
 - [ ] Limites, parada e entrada/saída dos boxes verificáveis; infrações e serviço por componente.
 - [ ] Fixar temporada de referência. DRS convencional corresponde à geração até 2025; Active Aero/Overtake/Recharge de 2026 exigem outra configuração.
 
-## Pistas — nenhuma réplica real está concluída
+## Pistas originais e HUD — revisão 0.4.0 concluída
+
+- [x] Identificar APX-01 a APX-06, estilos, extensão, curvas e setores a partir da geometria.
+- [x] Suavizar curvas impossíveis, reservar reta de largada e boxes nivelados e abrir escapes nas curvas.
+- [x] Unificar proteções visuais e limites físicos para jogador e IA; corrigir acúmulo de velocidade residual após contatos da IA.
+- [x] Verificar voltas no seco/chuva, serviço de boxes e grid de vinte carros em todos os mapas.
+- [x] Posicionar decoração com afastamento de todos os trechos; acrescentar marcos regionais, público agrupado, placas e painel ao vivo.
+- [x] Acrescentar setores, delta, próxima curva, temperatura por eixo, pedais, RPM, asas, limitador, minimapa e radar.
+- [x] Conferir menu e HUD em desktop, retrato estreito e paisagem.
+
+Detalhes e resultados: [MAPAS-HUD-0.4.md](MAPAS-HUD-0.4.md).
+
+## Pistas reais — nenhuma réplica está concluída
 
 - [ ] Escolher circuito e versão/ano antes da reconstrução.
 - [ ] Substituir pontos desenhados à mão por linha central e bordas provenientes de fonte geográfica verificável.
@@ -76,7 +89,7 @@ Referências escolhidas na auditoria: Interlagos, Marina Bay, Monza, Barcelona-C
 - [ ] Sons de turbo, transmissão, trocas, pneus escorregando, zebras e público; alertas de carros ao lado, previsão de chuva e temperatura por eixo no rádio.
 - [ ] Escolha de carro/equipe na corrida rápida, contratos por proposta e reputação por infrações; comparar e medir os seis upgrades separadamente.
 - [ ] Distâncias de 25/50/100% baseadas no calendário escolhido e no circuito, substituindo a base única de 58 voltas.
-- [ ] Resolução, qualidade de reflexos, qualidade de sombras e motion blur configuráveis; validar qualidade em outras resoluções; a sobreposição do menu estreito foi corrigida em 0.3.0. Validar pedais e câmbio/embreagem por toque em aparelhos físicos.
+- [ ] Resolução, qualidade de reflexos, qualidade de sombras e motion blur configuráveis; validar qualidade em outras resoluções; a sobreposição do menu estreito foi corrigida em 0.3.0. Validar pedais e câmbio por toque em aparelhos físicos.
 - [ ] Campeonato com classificação dos rivais e calendário definido; contratos e desenvolvimento de equipe na carreira.
 - [ ] Multiplayer com servidor e sincronização; não há serviço online implementado.
 - [ ] Testes de latência, frame times e desempenho em outras máquinas, resoluções e controles.

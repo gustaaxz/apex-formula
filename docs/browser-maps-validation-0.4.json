@@ -1,0 +1,47 @@
+{
+  "method": "Inspeção visual por UI; fixture parada 65 m antes da curva característica, somente no laboratório.",
+  "maps": [
+    {
+      "id": 1,
+      "track": "APX-01 · COSTA VERDE",
+      "corner": "Esses da Mata",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-01\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":55,\"render\":{\"calls\":613,\"triangles\":264308},\"command\":\"Fixture visual: parada 65 m antes da curva 7\"}"
+    },
+    {
+      "id": 2,
+      "track": "APX-02 · MARINA NEON",
+      "corner": "Chicane da Marina",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-02\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":53,\"render\":{\"calls\":562,\"triangles\":227280},\"command\":\"Fixture visual: parada 65 m antes da curva 10\"}"
+    },
+    {
+      "id": 3,
+      "track": "APX-03 · ALTA VELOCITÀ",
+      "corner": "Esses do Bosque",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-03\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":52,\"render\":{\"calls\":320,\"triangles\":214416},\"command\":\"Fixture visual: parada 65 m antes da curva 3\"}"
+    },
+    {
+      "id": 4,
+      "track": "APX-04 · SIERRA BLANCA",
+      "corner": "Curva do Mirante",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-04\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":55,\"render\":{\"calls\":337,\"triangles\":230368},\"command\":\"Fixture visual: parada 65 m antes da curva 2\"}"
+    },
+    {
+      "id": 5,
+      "track": "APX-05 · DUNAS DE YAS",
+      "corner": "Gancho das Dunas",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-05\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":53,\"render\":{\"calls\":163,\"triangles\":208050},\"command\":\"Fixture visual: parada 65 m antes da curva 8\"}"
+    },
+    {
+      "id": 6,
+      "track": "APX-06 · SILVER COAST",
+      "corner": "Esses do Farol",
+      "hudTextOK": true,
+      "diagnostic": "{\"track\":\"APX-06\",\"phase\":\"race\",\"speedKph\":0,\"gear\":1,\"clutch\":1,\"fps\":55,\"render\":{\"calls\":130,\"triangles\":224319},\"command\":\"Fixture visual: parada 65 m antes da curva 13\"}"
+    }
+  ]
+}
