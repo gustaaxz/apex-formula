@@ -1,0 +1,13 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>APEX — Inspeção de mapas e HUD</title><style>body{margin:0;background:#0e1a22;color:#dce8ed;font:12px system-ui}header{padding:6px 12px;height:35px}output{display:block;padding:5px 12px;white-space:pre-wrap;font:11px monospace}iframe{border:0;width:100%;height:calc(100vh - 68px)}</style>
+<header>Laboratório visual · “Inspecionar curva” reposiciona apenas esta sessão de teste. As teclas passam pelos controles do jogo.</header><output id="state">Preparando…</output><iframe title="Jogo em teste" src="../index.html"></iframe>
+<script>
+const frame=document.querySelector('iframe'),out=document.querySelector('#state');let commands=null;
+frame.addEventListener('load',()=>{const doc=frame.contentDocument,win=frame.contentWindow,bar=doc.createElement('div');bar.style.cssText='position:fixed;top:0;left:270px;z-index:10000;display:flex;gap:4px;background:#0e1a22;padding:3px';bar.innerHTML='<button id="inspectCorner">Inspecionar curva</button><button id="inspectStraight">Inspecionar reta</button><button id="launchTest">Largada por teclas</button><button id="brakeTest">Frear 2 s</button><button id="cameraTest">Câmera</button>';doc.body.appendChild(bar);const key=(code,type)=>win.dispatchEvent(new win.KeyboardEvent(type,{code,bubbles:true})),press=code=>{key(code,'keydown');key(code,'keyup');};
+ doc.getElementById('inspectCorner').onclick=()=>{const a=win.apex,r=a.race,c=a.track.corners.find(c=>c.name===a.track.signature)||a.track.corners[2];if(!r)return;win.focus();r.phase='race';r.countdown=0;r.resetPlayer(c.apex-65,0,0);r.player.clutch=1;r.player.temp=r.player.frontTemp=r.player.rearTemp=95;commands='Fixture visual: parada 65 m antes da curva '+c.number;};
+ doc.getElementById('inspectStraight').onclick=()=>{const r=win.apex.race;if(!r)return;win.focus();r.resetPlayer(-40,0,0);commands='Fixture visual: reta';};
+ doc.getElementById('cameraTest').onclick=()=>{win.focus();press('KeyC');};
+ doc.getElementById('launchTest').onclick=()=>{const r=win.apex.race;if(!r||r.phase!=='race')return;win.focus();key('KeyW','keydown');setTimeout(()=>{key('KeyW','keyup');commands='Largada somente pelo acelerador W, concluída';},5000);};
+ doc.getElementById('brakeTest').onclick=()=>{win.focus();key('KeyS','keydown');setTimeout(()=>{key('KeyS','keyup');commands='Freio S por 2 s, concluído';},2000);};
+});
+setInterval(()=>{try{const a=frame.contentWindow.apex,r=a?.race,p=r?.player;out.textContent=JSON.stringify({track:a?.track?.id,phase:r?.phase,speedKph:p?Math.round(p.speed*3.6):null,gear:p?.gear,clutch:p?.clutch,lapValid:r?.timing.valid,fps:a?.fps,render:a?.rendererInfo,command:commands});}catch(e){out.textContent=e.message;}},250);
+</script></html>
