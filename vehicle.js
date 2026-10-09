@@ -70,7 +70,7 @@ function tick(r,dt,input,tyres){
  p.wheelspin=throttle>.1&&brake<.1&&Math.abs(drive)>rearCap;
  const fCap=frontCap*(p.frontLocked?.76:1),rCap=rearCap*(p.rearLocked?.76:p.wheelspin?.9:1);
  const fxF=clamp(frontDemand,-fCap,fCap),fxR=clamp(rearDemand,-rCap,rCap);
- const latCapF=Math.sqrt(Math.max(0,fCap*fCap-fxF*fxF)),latCapR=Math.sqrt(Math.max(0,rCap*rCap-fxR*fxR));
+ const latCapF=Math.sqrt(Math.max(0,fCap*fCap-fxF*fxF)),latCapR=Math.max(rCap*.6,Math.sqrt(Math.max(0,rCap*rCap-fxR*fxR)));
  const slipF=Math.atan2(v+a*p.yawRate,Math.max(3,Math.abs(u)))-p.steerAngle*Math.sign(u||1),slipR=Math.atan2(v-b*p.yawRate,Math.max(3,Math.abs(u)));
  let fyF=-latCapF*Math.tanh(slipF*70000/Math.max(1,latCapF)),fyR=-latCapR*Math.tanh(slipR*80000/Math.max(1,latCapR));
  const delta=p.frontLocked?0:p.steerAngle,frontX=fxF*Math.cos(delta)-fyF*Math.sin(delta),frontY=fxF*Math.sin(delta)+fyF*Math.cos(delta);
@@ -80,7 +80,7 @@ function tick(r,dt,input,tyres){
  p.longAcceleration=ax;p.lateralAcceleration=ay;
  p.vx+=(ax*fX+ay*nX)*dt;p.vz+=(ax*fZ+ay*nZ)*dt;
  if(Math.abs(u)<4){const target=u/wb*Math.tan(delta);p.yawRate+=(target-p.yawRate)*Math.min(1,dt*12);const lateral=p.vx*nX+p.vz*nZ;p.vx-=lateral*nX*Math.min(1,dt*8);p.vz-=lateral*nZ*Math.min(1,dt*8);}
- else p.yawRate+=(a*frontY-b*fyR)/(mass*2.4)*dt;
+ else{p.yawRate+=(a*frontY-b*fyR)/(mass*2.4)*dt;p.yawRate*=Math.exp(-dt*1.8);}
  const newU=p.vx*fX+p.vz*fZ;
  if(brake>0&&(u*newU<0||Math.abs(u)<.1)&&Math.abs(u)<1.5&&Math.abs(drive)<brakeForce||Math.hypot(p.vx,p.vz)<.06&&throttle===0&&Math.abs(grade)<.012){p.vx=p.vz=p.yawRate=0;p.longAcceleration=p.lateralAcceleration=0;}
  p.heading=wrap(p.heading+p.yawRate*dt);p.x+=p.vx*dt;p.z+=p.vz*dt;project(r);
