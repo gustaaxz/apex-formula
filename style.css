@@ -20,3 +20,55 @@
 .aero-row{margin-top:12px;font:8px monospace;color:#b8c9ce}
 
 @media(max-height:520px){.telemetry-bottom,.wing-status{display:none}}
+:disabled{cursor:default;opacity:.35}
+#hud.course-incomplete .corner-guide{display:none}
+@media(max-width:760px){#hud.neutralized .corner-guide,#hud.neutralized #radio{display:none}#hud.neutralized #courseNotice{top:111px;font-size:8px;padding:6px 10px}}
+#raceControlNotice{position:absolute;z-index:3;top:65px;left:50%;transform:translateX(-50%);width:min(500px,90vw);padding:10px 14px;border:1px solid #ffcc5877;background:#142027ed;color:#ffcc58;font:10px monospace;text-align:center;line-height:1.6}
+#raceControlNotice.late{border-color:#ff5061;color:#ff8792}
+#courseNotice{position:absolute;z-index:3;top:105px;left:50%;transform:translateX(-50%);width:min(440px,90vw);padding:12px 16px;border:1px solid #ffcc5877;background:#142027ed;color:#ffcc58;font:10px monospace;text-align:center;line-height:1.6}
+#modal.race-result-modal{width:min(1000px,94vw)}
+.result-scroll{width:100%;overflow-x:auto;margin:20px 0;overscroll-behavior:contain}
+.race-results{min-width:700px;width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.race-results caption{text-align:left;color:var(--muted);font-size:12px;padding-bottom:12px}
+.race-results th,.race-results td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.race-results thead th{font:9px monospace;color:var(--muted)}
+.race-results tbody th{font-size:11px;font-weight:600}
+.race-results td small{display:block;font-size:10px;color:var(--muted);max-width:200px;white-space:normal;margin-top:4px}
+.season-calendar{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:20px 0}
+.season-calendar li{border:1px solid var(--line);padding:10px;font-size:12px}
+.season-calendar small{display:block;margin-top:5px;color:var(--muted);font:9px monospace}
+.season-calendar .current{border-color:var(--accent);color:var(--accent)}
+.season-standings{width:100%;min-width:430px;font-variant-numeric:tabular-nums}
+.season-standings th{text-align:left;color:var(--muted);font:9px monospace;padding:10px 12px}
+@media(max-width:480px){.season-calendar{grid-template-columns:1fr}}
+.control-bindings{width:100%;border-collapse:collapse;min-width:450px;text-align:left;font-size:12px}
+.control-bindings th,.control-bindings td{border-bottom:1px solid var(--line);padding:9px 5px}
+.control-bindings thead{font:9px monospace;color:var(--muted)}
+.control-bindings button{min-width:100px;font:11px monospace;padding:10px;background:#26353d}
+.control-bindings select{width:125px;background:#17242b;color:#fff;border:1px solid var(--line);padding:8px}
+#bindingStatus{min-height:24px;color:var(--accent)}
+.lesson-list article{border:1px solid var(--line);padding:16px;margin:14px 0}
+.lesson-list h3{font-size:18px;margin:0}.lesson-list p{font-size:13px}
+#drivingFeedback{position:absolute;left:50%;bottom:218px;transform:translateX(-50%);width:min(440px,39vw);display:grid;gap:5px}
+#drivingFeedback>div{background:#15242cee;border-left:3px solid #ffcb68;padding:10px 13px}
+#drivingFeedback b{display:block;font:10px monospace;letter-spacing:1px;color:#ffcb68}
+#drivingFeedback span{display:block;font-size:12px;line-height:1.5;margin-top:4px;color:#e5eeee}
+#trainingNotice{position:absolute;top:86px;left:50%;transform:translateX(-50%);width:min(490px,48vw);padding:12px 16px;background:#12242cf5;border:1px solid #d8ff3e88}
+#trainingNotice b{display:block;color:var(--accent);font:11px monospace;margin-bottom:7px}
+#trainingNotice span{display:block;font-size:13px;line-height:1.6}
+#hud.training .classification,#hud.training .lap-panel,#hud.training .corner-guide,#hud.training #radio,#hud.training .race-hints{display:none}
+@media(max-width:760px){#drivingFeedback{top:210px;bottom:auto;width:calc(100% - 30px)}#drivingFeedback>div{padding:8px 10px}#drivingFeedback b{font-size:9px}#drivingFeedback span{font-size:11px}#trainingNotice{top:80px;width:calc(100% - 30px);padding:10px 12px}#trainingNotice span{font-size:12px}#hud:has(#drivingFeedback>div) .corner-guide,#hud:has(#drivingFeedback>div) #leaderboard,#hud:has(#drivingFeedback>div) .lap-panel>div,#hud:has(#drivingFeedback>div) .lap-panel>strong,#hud:has(#drivingFeedback>div) #radio{display:none}#hud.training #drivingFeedback{top:230px}}
+@media(max-width:760px) and (min-height:521px) and (max-height:700px){#hud:has(#drivingFeedback>div) .map-wrap,#drivingFeedback>div:nth-child(2){display:none}#hud.training #drivingFeedback{top:210px}}
+@media(max-height:520px){#drivingFeedback{bottom:auto;top:80px;left:50%;width:300px}#drivingFeedback span{font-size:10px}#drivingFeedback>div:nth-child(2){display:none}#trainingNotice{top:75px;left:15px;transform:none;width:260px}#hud.training #drivingFeedback{left:auto;right:15px;transform:none;width:260px}}
+@media(max-height:520px){#hud:has(#drivingFeedback>div) .corner-guide{display:none}#hud.training #drivingFeedback{top:80px}#hud.neutralized #drivingFeedback{top:135px}#hud.course-incomplete #drivingFeedback{top:165px}}
+.race-buttons{display:flex;gap:8px}.race-buttons .icon-button{margin-left:0}
+.fastest-label{font:9px monospace;line-height:1.6;color:#d2a1ff;background:#171328c9;padding:7px;margin:5px 0}
+.fastest-summary,.fastest-time{color:#d2a1ff!important}.fastest-summary{font:12px monospace}
+.fastest-badge{display:inline-block;color:#10171b;background:#d2a1ff;font:9px monospace;padding:3px 5px;margin-left:5px}
+.full-leaderboard{min-width:1080px}.analysis-table{border-collapse:collapse;width:100%;min-width:490px;font-size:12px;font-variant-numeric:tabular-nums}
+#modal.full-board-modal{width:min(1240px,94vw)}.full-leaderboard td,.full-leaderboard tbody th{font-size:12px;padding:8px 7px;line-height:1.3}
+.analysis-table td,.analysis-table th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.analysis-table thead{font:9px monospace;color:var(--muted)}
+.ghost-status{font:9px monospace;line-height:1.7;color:#66e5ff;margin:9px 0;background:#142630d9;padding:6px}
+@media(max-width:760px){.fastest-label{font-size:7px;padding:5px}.ghost-status{font-size:7px;padding:4px}#hud:has(#drivingFeedback>div) #fastestLapLabel,#hud:has(#drivingFeedback>div) #ghostStatus{display:none}.race-buttons{gap:5px}}
+@media(max-height:520px){.fastest-label{display:none}}

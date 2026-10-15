@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APEX · Avaliação dos resultados</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body{overflow:auto;height:auto;padding:24px;background:#101b22}
+.review-tools{max-width:1000px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap}
+.review-tools h1{flex-basis:100%;font:700 24px Arial;letter-spacing:0;margin:12px 0}
+.review-tools p{flex-basis:100%;color:#b1c0c6;font-size:13px;line-height:1.7}
+.review-tools button{padding:12px;border:1px solid #657e8966;font-size:12px}
+.review-tools button.selected{background:var(--accent);color:#18200c}
+#modal{margin:24px auto;width:min(1000px,100%);max-height:none}
+.sample-profile{padding:15px;background:#ffffff06;color:#b1c0c6;font-size:12px;line-height:1.8}
+@media(max-width:600px){body{padding:12px}#modal{padding:24px 16px}.split-stat{gap:22px}}
+</style>
+<nav class="review-tools" aria-label="Cenários de avaliação">
+<h1>APEX · Etapa 1 para avaliação</h1>
+<p>Exemplos controlados usando o mesmo cálculo e a mesma tabela do jogo. O perfil abaixo é fictício e nenhum progresso é salvo.</p>
+<button data-case="clean">Sem punição</button><button data-case="penalty">A +5 s / B chega +2 s</button><button data-case="lapped">Uma volta atrás</button><button data-case="dnf">Abandono</button><button data-case="pending">Resultado provisório</button>
+</nav>
+<main id="modal" class="race-result-modal"><div id="review"></div></main>
+<script src="../timing.js"></script><script src="../results.js"></script><script src="../results-view.js"></script>
+<script src="course-fixtures.js"></script>
+<script>
+const target=document.getElementById('review');let state;
+const cross=ApexCourseFixtures.cross;
+function choose(kind){
+ const a={id:9,name:'PILOTO A',d:0},b={id:1,name:'PILOTO B',d:0};
+ const board=new ApexResults.Classification(1000,kind==='lapped'?3:1),cars=[a,b];
+ if(kind==='dnf'){a.d=5000;board.retire(a,90,'Combustível esgotado');cross(board,b,1,100);}
+ else if(kind==='lapped'){cross(board,b,3,100);cross(board,a,2,105);}
+ else{cross(board,a,1,100);if(kind!=='pending')cross(board,b,1,102);if(kind==='penalty')board.setPenalty(a,5);}
+ state={kind,a,b,board,cars,profile:{points:0,credits:0,reputation:0,round:0,season:1}};
+ document.querySelectorAll('[data-case]').forEach(button=>button.classList.toggle('selected',button.dataset.case===kind));
+ render();
+}
+function render(){
+ const {a,b,board,cars,profile}=state;
+ board.finalize(cars);
+ ApexResults.applyReward(profile,board.claimReward(cars,a,'career'));
+ const row=board.rows(cars).find(row=>row.id===a.id),final=!!board.final;
+ const note=state.kind==='penalty'?'A cruzou a linha em 1:40, recebeu +5 s e caiu para P2. B chegou em 1:42 e venceu.':state.kind==='lapped'?'A completou duas voltas e B completou três. A diferença é exibida em voltas.':state.kind==='dnf'?'A abandonou. Distância adiantada não gera vitória, pontos ou créditos.':state.kind==='pending'&&!final?'A posição e as recompensas aguardam a chegada do adversário.':'A chegou dois segundos antes de B e venceu.';
+ target.innerHTML=`<div class="modal-eyebrow">${final?'RESULTADO DEFINITIVO':'RESULTADO PROVISÓRIO'}</div><h2>${row.status==='dnf'?'Abandono.':final?'P'+row.position+'. Até a próxima curva.':'Sua chegada foi registrada.'}</h2><p>${note}</p><div class="split-stat"><div><b>${final?row.points:'—'}</b><span>PONTOS</span></div><div><b>${profile.credits}</b><span>CRÉDITOS</span></div></div>${ApexResultsView.table(board.rows(cars),a.id)}<p class="sample-profile" role="status">Perfil de exemplo: ${profile.points} pontos · ${profile.credits} créditos · ${profile.reputation} reputação · ${profile.round} etapa(s) registrada(s).</p><div class="modal-actions"><button class="primary" id="reviewAction">${final?'REABRIR RESULTADO':'CONCLUIR ADVERSÁRIO'} <span>↗</span></button></div>`;
+ document.getElementById('reviewAction').onclick=()=>{if(!final)cross(board,b,1,102);render();};
+}
+document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>choose(button.dataset.case));
+choose('penalty');
+</script>
+</html>

@@ -4,7 +4,7 @@ Jogo 3D de monopostos com cockpit, 19 adversários e estratégia. Protótipo jog
 
 ## Jogar
 
-Extraia a pasta inteira e abra **index.html** no Edge ou Chrome; no Windows também pode usar **JOGAR.cmd**. O jogo funciona offline, sem instalar pacotes. Precisa de WebGL com aceleração gráfica. Mantenha todos os arquivos juntos, incluindo tracks.js, timing.js, chassis.js, vehicle.js e a pasta vendor.
+Extraia a pasta inteira e abra **index.html** no Edge ou Chrome; no Windows também pode usar **JOGAR.cmd**. O jogo funciona offline, sem instalar pacotes. Precisa de WebGL com aceleração gráfica. Mantenha todos os arquivos juntos, incluindo tracks.js, timing.js, results.js, results-view.js, opponents.js, race-control.js, chassis.js, vehicle.js e a pasta vendor.
 
 ## Controles
 
@@ -24,7 +24,7 @@ Extraia a pasta inteira e abra **index.html** no Edge ou Chrome; no Windows tamb
 | R | Consultar engenheiro |
 | Esc | Pausar / continuar |
 | H | Ocultar / mostrar instrumentos auxiliares |
-| X | Reposicionar e parar, com penalidade de 5 s |
+| X | Voltar parado ao último ponto validado, invalidando o recorde da volta e somando 5 s |
 | Botão direito + movimento do mouse | Olhar para os lados |
 
 Gamepad padrão: RT/LT acelerador/freio; analógico esquerdo direção; direito olhar; RB/LB marchas; A ERS; X DRS; Y rádio; B boxes; Start pausa. O mapeamento depende do navegador. Teclas Z/L também estão disponíveis para ré e limitador. Telas estreitas têm botões de toque de pedais, direção e marchas.
@@ -55,15 +55,19 @@ Escolha o próximo composto em Pausa → Estratégia de boxes. A parada troca pn
 - Colisões entre jogador/IA e IA/IA usam formas orientadas, impulso, atrito, rotação e separação. As asas dianteira/traseira têm dano próprio. Aero inclui asa dianteira, traseira, assoalho, altura, DRS, vácuo e ar sujo.
 - HUD com próxima curva numerada, distância, setores cronometrados, delta para a melhor volta válida, pedais, temperaturas por eixo, asas, limitador e radar de proximidade. O minimapa mostra os carros nas posições reais e destaca três setores.
 - Voltas com o carro inteiro fora da pista ou reposicionamento não geram recorde. Os recordes dos novos traçados são separados dos antigos.
-- IA e direção de prova ainda são simplificadas. Penalidades finais, progresso obrigatório por checkpoints, paradas, Safety Car/VSC e classificação real por voltas seguem no plano de melhorias. Reduza manualmente nas neutralizações.
+- Corridas usam pontos de controle ordenados, resultados corrigidos por penalidades e classificação sem tempo válido em P20. A IA tem boxes contínuos, percepção de tráfego e limites aproximados de aderência, combustível e danos. SC usa fila e relargada na linha; VSC mostra delta; ultrapassagens proibidas têm prazo de devolução. Reduza manualmente nas neutralizações. As regras são locais; a física completa do jogador para IA, zonas de bandeiras e classificação dos adversários por voltas efetivas continuam pendentes. Veja as etapas [2](docs/PERCURSO-ETAPA-2.md) e [3](docs/ADVERSARIOS-ETAPA-3.md).
 - Multiplayer, force feedback dedicado, circuitos/carros oficiais, acabamento fotorrealista e falhas físicas por componente continuam pendentes.
+- Carreira e campeonato têm progresso, calendário e classificação de rivais independentes, com histórico das últimas cinco temporadas. O progresso antigo é preservado na carreira; quando faltam resultados anteriores dos rivais, a tabela informa histórico parcial. Veja a [etapa 4](docs/CARREIRA-ETAPA-4.md).
+- Controles remapeáveis, ajustes de resposta e zonas mortas; escola de marchas, frenagem e boxes; avisos visuais e sonoros de aderência, temperatura e combustível. Abra **Controles** no menu ou na pausa. Veja a [etapa 5](docs/APRENDIZADO-ETAPA-5.md).
+- Setores S1/S2/S3 demarcados nos mapas; botão **≡** para a classificação completa com números, escuderias, melhores voltas, pneus, paradas e punições. A volta mais rápida válida é destacada em roxo.
+- Contra o relógio com fantasma da melhor volta limpa por pista/clima/acerto e repetição rápida. Relatório da sessão com comparação de setores/curvas, consistência, estratégia, incidentes e tempos de boxes. Veja a [etapa 6](docs/EVOLUCAO-ETAPA-6.md).
 - Salvamentos ficam no navegador e dependem da origem (arquivo ou localhost). A voz depende do sistema; desempenho depende do computador e dos gráficos.
 
 ## Testes e desenvolvimento
 
 Sem compilação. Node.js 20+ permite executar:
 
-`npm test` — 87 testes de física, pistas, boxes, grid e cronometragem.
+`npm test` — 205 testes de física, pistas, boxes, grid, percurso, cronometragem, resultados, direção de prova, progressão, controles, aprendizado e evolução pessoal.
 
 `npm run audit:car` — medições da versão atual, em docs/car-validation-0.4.json.
 
@@ -77,4 +81,16 @@ Sem compilação. Node.js 20+ permite executar:
 
 O laboratório tests/browser-lab.html envia comandos aos listeners reais do jogo. Seus controles de teste não fazem parte de index.html. Os testes de volta usam um controlador exclusivo de teste, ausente do jogo.
 
-Arquivos principais: index.html, style.css, game.js, tracks.js, timing.js, simulation.js, vehicle.js e chassis.js. O laboratório tests/maps-browser.html permite inspecionar as curvas e testar o HUD; seu reposicionamento é exclusivo do teste. Three.js 0.160.1 está incluído em vendor/ com sua licença MIT. Consulte docs/ para fontes, resultados e pendências.
+Arquivos principais: index.html, style.css, game.js, tracks.js, timing.js, results.js, results-view.js, opponents.js, race-control.js, progression.js, controls.js, coaching.js, training.js, personal.js, personal-view.js, simulation.js, vehicle.js e chassis.js. O laboratório tests/maps-browser.html permite inspecionar as curvas e testar o HUD; seu reposicionamento é exclusivo do teste. Three.js 0.160.1 está incluído em vendor/ com sua licença MIT. Consulte docs/ para fontes, resultados e pendências.
+
+## Avaliar os novos resultados
+
+Abra **tests/results-review.html** para conferir penalidades, retardatários, abandono e recompensas sem alterar seu progresso. Veja o [roteiro da etapa 1](docs/RESULTADOS-ETAPA-1.md).
+
+As etapas [2 — percurso](docs/PERCURSO-ETAPA-2.md) e [3 — adversários e neutralizações](docs/ADVERSARIOS-ETAPA-3.md) têm roteiros próprios de avaliação. Para verificações automatizadas da tela real: `node tools/results-browser-check.cjs --stage3` (Node 22+ e Chrome/Edge). A auditoria de CPU com vinte carros é `node tools/race-dynamics-audit.cjs`.
+
+A [etapa 4 — carreira e campeonato](docs/CARREIRA-ETAPA-4.md) inclui roteiro de avaliação, migração e limitações dos salvamentos. `node tools/results-browser-check.cjs --stage4` verifica os fluxos anteriores e os novos modos em um navegador com perfil temporário.
+
+A [etapa 5 — controles e aprendizado](docs/APRENDIZADO-ETAPA-5.md) inclui os exercícios e o roteiro de avaliação humana em teclado/gamepad. `node tools/results-browser-check.cjs --stage5` executa a regressão das cinco etapas.
+
+A [etapa 6 — evolução pessoal, setores e classificação](docs/EVOLUCAO-ETAPA-6.md) tem roteiro e limites das referências. `node tools/results-browser-check.cjs --stage6` verifica as seis etapas em um perfil temporário de Chrome/Edge.

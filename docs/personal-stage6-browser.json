@@ -1,0 +1,497 @@
+{
+  "reports": [
+    {
+      "scenario": "penalty",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "layout": {
+        "viewport": 1440,
+        "body": 1440,
+        "modal": 1000,
+        "tableScrollable": false,
+        "rows": 2
+      }
+    },
+    {
+      "scenario": "lapped",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 0,
+      "status": "finished",
+      "definitive": true
+    },
+    {
+      "scenario": "dnf",
+      "mode": "gp",
+      "ok": true,
+      "expected": "Abandono.",
+      "position": 2,
+      "points": 0,
+      "displayedPoints": "0",
+      "penalty": 0,
+      "status": "dnf",
+      "definitive": true
+    },
+    {
+      "scenario": "pending",
+      "mode": "gp",
+      "ok": true,
+      "expected": "RESULTADO PROVISÓRIO",
+      "position": 1,
+      "points": 25,
+      "displayedPoints": null,
+      "penalty": 0,
+      "status": "finished",
+      "definitive": false
+    },
+    {
+      "scenario": "completed",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P1.",
+      "position": 1,
+      "points": 25,
+      "displayedPoints": "25",
+      "penalty": 0,
+      "status": "finished",
+      "definitive": true
+    },
+    {
+      "scenario": "career",
+      "mode": "career",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "saved": {
+        "points": 18,
+        "credits": 112,
+        "round": 1
+      }
+    },
+    {
+      "scenario": "mobile",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "layout": {
+        "viewport": 390,
+        "body": 390,
+        "modal": 366.59375,
+        "tableScrollable": true,
+        "rows": 2
+      }
+    },
+    {
+      "scenario": "offline-review",
+      "ok": true,
+      "penaltyPoints": 18,
+      "penaltyCredits": 112,
+      "reopenUnchanged": true,
+      "completedPoints": 25
+    },
+    {
+      "scenario": "qualify-valid",
+      "ok": true,
+      "completedLaps": 1,
+      "attempts": 1,
+      "best": 85.76023249642246,
+      "penalty": 0,
+      "recoveredAt": null,
+      "expectedRecovery": null
+    },
+    {
+      "scenario": "qualify-invalid",
+      "ok": true,
+      "completedLaps": 1,
+      "attempts": 1,
+      "best": null,
+      "penalty": 0,
+      "recoveredAt": null,
+      "expectedRecovery": null
+    },
+    {
+      "scenario": "qualify-grid",
+      "ok": true,
+      "completedLaps": 1,
+      "attempts": 1,
+      "best": null,
+      "penalty": 0,
+      "recoveredAt": null,
+      "expectedRecovery": null
+    },
+    {
+      "scenario": "cut",
+      "ok": true,
+      "completedLaps": 0,
+      "attempts": 1,
+      "best": null,
+      "penalty": 0,
+      "recoveredAt": null,
+      "expectedRecovery": null
+    },
+    {
+      "scenario": "recover",
+      "ok": true,
+      "completedLaps": 0,
+      "attempts": 0,
+      "best": null,
+      "penalty": 5,
+      "recoveredAt": 285.8674416547415,
+      "expectedRecovery": 285.8674416547415
+    },
+    {
+      "scenario": "mobile",
+      "ok": true,
+      "completedLaps": 1,
+      "attempts": 1,
+      "best": null,
+      "penalty": 0,
+      "recoveredAt": null,
+      "expectedRecovery": null
+    },
+    {
+      "scenario": "vsc-good",
+      "ok": true,
+      "penalty": 0,
+      "flag": "vsc",
+      "delta": 1.7499999999999911,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "DELTA VSC +1.7 S · MANTENHA ZERO OU POSITIVO",
+      "stage": 3
+    },
+    {
+      "scenario": "vsc-bad",
+      "ok": true,
+      "penalty": 5,
+      "flag": "vsc",
+      "delta": -1.7500000000000089,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "DELTA VSC -1.8 S · MANTENHA ZERO OU POSITIVO",
+      "stage": 3
+    },
+    {
+      "scenario": "return",
+      "ok": true,
+      "penalty": 0,
+      "flag": "vsc",
+      "delta": 6.875,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "",
+      "stage": 3
+    },
+    {
+      "scenario": "penalty",
+      "ok": true,
+      "penalty": 5,
+      "flag": "vsc",
+      "delta": 6.275,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "",
+      "stage": 3
+    },
+    {
+      "scenario": "restart",
+      "ok": true,
+      "penalty": 0,
+      "flag": "green",
+      "delta": null,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "",
+      "stage": 3
+    },
+    {
+      "scenario": "pit",
+      "ok": true,
+      "penalty": 0,
+      "flag": "green",
+      "delta": null,
+      "pitted": true,
+      "pitPhase": "",
+      "maxLaneStep": 0.029166666666696983,
+      "notice": "",
+      "stage": 3
+    },
+    {
+      "scenario": "mobile",
+      "ok": true,
+      "penalty": 5,
+      "flag": "vsc",
+      "delta": -1.7500000000000089,
+      "pitted": false,
+      "pitPhase": "",
+      "maxLaneStep": 0,
+      "notice": "DELTA VSC -1.8 S · MANTENHA ZERO OU POSITIVO",
+      "stage": 3
+    },
+    {
+      "stage": 4,
+      "scenario": "migration",
+      "ok": true,
+      "careerPoints": 42,
+      "careerRound": 2,
+      "championshipPoints": 0,
+      "legacyPreserved": true,
+      "escapedName": true
+    },
+    {
+      "stage": 4,
+      "scenario": "independent-rounds",
+      "ok": true,
+      "careerPoints": 18,
+      "championshipPoints": 25,
+      "duplicateReopen": false,
+      "rivals": 20
+    },
+    {
+      "stage": 4,
+      "scenario": "reload-calendar-and-gp",
+      "ok": true,
+      "careerRound": 1,
+      "championshipRound": 1,
+      "gpUnchanged": true
+    },
+    {
+      "stage": 4,
+      "scenario": "rollover",
+      "ok": true,
+      "archivedPoints": 150,
+      "newSeason": 2,
+      "careerSeason": 1
+    },
+    {
+      "stage": 4,
+      "scenario": "mobile-standings",
+      "ok": true,
+      "layout": {
+        "viewport": 390,
+        "body": 390,
+        "modal": 358.796875,
+        "tableScrollable": true,
+        "rows": 20
+      }
+    },
+    {
+      "stage": 4,
+      "scenario": "future-save-preserved",
+      "ok": true
+    },
+    {
+      "stage": 4,
+      "scenario": "corrupt-save-recovery",
+      "ok": true
+    },
+    {
+      "stage": 5,
+      "scenario": "remapping-and-conflicts",
+      "ok": true,
+      "throttle": "I",
+      "gamepadUp": 10,
+      "steerRate": 2
+    },
+    {
+      "stage": 5,
+      "scenario": "keyboard-input-and-reload",
+      "ok": true,
+      "oldKeyInactive": true,
+      "newKeyDrives": true,
+      "persisted": true
+    },
+    {
+      "stage": 5,
+      "scenario": "gamepad-edges-pause-deadzone-disconnect",
+      "ok": true,
+      "syntheticGamepad": true,
+      "pauseAndResume": true
+    },
+    {
+      "stage": 5,
+      "scenario": "grip-visual-and-audio",
+      "ok": true,
+      "audioGraph": true,
+      "audioState": "running",
+      "independentAudioToggle": true
+    },
+    {
+      "stage": 5,
+      "scenario": "mobile-controls-temperature-fuel",
+      "ok": true,
+      "controlLayout": {
+        "viewport": 390,
+        "body": 390,
+        "modal": 358.796875,
+        "scrollable": true
+      },
+      "feedbackLayout": {
+        "left": 15,
+        "right": 375,
+        "width": 360,
+        "height": 114.5,
+        "viewport": 390
+      }
+    },
+    {
+      "stage": 5,
+      "scenario": "gear-lesson-and-retry",
+      "ok": true,
+      "controlledTelemetry": true,
+      "manualKeyEvents": true,
+      "noCareerWrite": true
+    },
+    {
+      "stage": 5,
+      "scenario": "braking-lesson-success-and-lock-failure",
+      "ok": true,
+      "controlledTelemetry": true
+    },
+    {
+      "stage": 5,
+      "scenario": "pit-lesson-and-career-preservation",
+      "ok": true,
+      "controlledTelemetry": true,
+      "restoredTrack": "APX-03",
+      "careerUnchanged": true
+    },
+    {
+      "stage": 5,
+      "scenario": "mobile-lesson",
+      "ok": true,
+      "lessonLayout": {
+        "left": 15,
+        "right": 375,
+        "viewport": 390,
+        "text": "Solicite os boxes com B · entrada em 64 m"
+      },
+      "touchPedalReleased": true
+    },
+    {
+      "stage": 5,
+      "scenario": "landscape-feedback",
+      "ok": true,
+      "landscape": {
+        "left": 272,
+        "right": 572,
+        "bottom": 131,
+        "height": 390,
+        "width": 844,
+        "cornerHidden": true
+      }
+    },
+    {
+      "stage": 6,
+      "scenario": "map-sector-boundaries",
+      "ok": true,
+      "preview": "S1,S2,S3",
+      "sectors": "S1/S2/S3",
+      "colorPixels": [
+        253,
+        302,
+        234
+      ]
+    },
+    {
+      "stage": 6,
+      "scenario": "full-roster-and-measured-fastest",
+      "ok": true,
+      "drivers": 20,
+      "fastest": 1,
+      "invalidFasterIgnored": true
+    },
+    {
+      "stage": 6,
+      "scenario": "ghost-save-and-lap-analysis",
+      "ok": true,
+      "reference": 100,
+      "cleanLaps": 2,
+      "spread": 10,
+      "careerUntouched": true
+    },
+    {
+      "stage": 6,
+      "scenario": "quick-retry-and-render-only-ghost",
+      "ok": true,
+      "countdownSkipped": true,
+      "collisionCars": 1,
+      "hiddenOnRequest": true
+    },
+    {
+      "stage": 6,
+      "scenario": "reload-and-weather-compatibility",
+      "ok": true,
+      "reloaded": 100,
+      "stormReference": null
+    },
+    {
+      "stage": 6,
+      "scenario": "invalid-faster-lap-rejected",
+      "ok": true,
+      "previousBest": 100,
+      "rejected": 90
+    },
+    {
+      "stage": 6,
+      "scenario": "pit-service-and-incidents",
+      "ok": true,
+      "pitLane": 19,
+      "service": 3,
+      "contacts": 2,
+      "penalty": 5
+    },
+    {
+      "stage": 6,
+      "scenario": "mobile-leaderboard-and-report",
+      "ok": true,
+      "layout": {
+        "viewport": 390,
+        "body": 390,
+        "modal": 366.59375,
+        "rows": 20,
+        "scrollable": true
+      }
+    },
+    {
+      "stage": 6,
+      "scenario": "future-ghost-preserved",
+      "ok": true,
+      "storageUnchanged": true,
+      "sessionReference": 100
+    }
+  ],
+  "exceptions": [],
+  "validation": {
+    "fullRegressionCases": 47,
+    "finalStage6RecheckCases": 9,
+    "note": "Full stages 1–6 regression passed. Stage 6 was rechecked after the final recording duration limit adjustment; its reports above are from that recheck."
+  }
+}

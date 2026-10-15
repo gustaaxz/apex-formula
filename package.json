@@ -4,7 +4,7 @@
   "private": true,
   "description": "Jogo local de corrida 3D de monopostos com cockpit, IA e estratégia.",
   "scripts": {
-    "test": "node --test tests/simulation.test.cjs tests/car.test.cjs tests/dynamics.test.cjs tests/tracks.test.cjs tests/timing.test.cjs tests/launch.test.cjs",
+    "test": "node --test tests/simulation.test.cjs tests/car.test.cjs tests/dynamics.test.cjs tests/tracks.test.cjs tests/timing.test.cjs tests/launch.test.cjs tests/results.test.cjs tests/course.test.cjs tests/race-control.test.cjs tests/progression.test.cjs tests/learning.test.cjs tests/personal.test.cjs",
     "audit:car": "node tests/car-audit.cjs",
     "audit:realism": "node tests/realism-audit.cjs",
     "audit:dynamics": "node tests/dynamics-audit.cjs",

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APEX · Avaliação da etapa 1</title>
+<style>
+body{margin:0;background:#101820;color:#eaf4f6;font:13px system-ui}
+header{padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{border:0;background:#d8ff3e;color:#101820;padding:10px;cursor:pointer}
+output{display:block;padding:10px 16px;background:#243139;white-space:pre-wrap}
+iframe{display:block;width:100%;height:calc(100vh - 145px);min-height:440px;border:0}
+p{margin:0;padding:8px 16px;color:#adc7d3;font-size:12px}
+</style>
+<header><b>ETAPA 1 · Avaliar resultados</b><button data-case="penalty">A +5 s / B +2 s</button><button data-case="lapped">Uma volta atrás</button><button data-case="dnf">Abandono</button><button data-case="pending">Resultado provisório</button><button id="completePending">Concluir adversário</button></header>
+<p>Exemplos controlados, exclusivos deste laboratório. No modo padrão, não alteram o progresso salvo. O jogo abaixo usa a tela real de resultados.</p>
+<output id="verification" role="status">Preparando o jogo…</output>
+<iframe title="APEX Formula · Resultado em avaliação" src="../index.html"></iframe>
+<script src="course-fixtures.js"></script>
+<script>
+const frame=document.querySelector('iframe'),out=document.querySelector('output');
+const query=new URLSearchParams(location.search);
+let fixture=null;
+function cross(r,car,line,time){
+ ApexCourseFixtures.cross(r.results,car,line,time);
+}
+function scenario(kind){
+ const win=frame.contentWindow,doc=frame.contentDocument;
+ win.focus();
+ // Drive the real menu to reset private presentation state between fixtures.
+ if(win.apex.race){doc.getElementById('resultMenu')?.click();doc.getElementById('pendingMenu')?.click();}
+ const mode=query.get('mode')==='career'?'career':'gp';
+ doc.querySelector(`[data-mode="${mode}"]`).click();
+ doc.getElementById('race').click();
+ if(mode==='career')doc.getElementById('careerContinue').click();
+ doc.getElementById('startGP').click();
+ const r=win.apex.race,p=r.player,b=r.cars[0],laps=kind==='lapped'?3:1;
+ r.cars=[p,b];p.name='PILOTO A';b.name='PILOTO B';
+ r.config.laps=laps;r.phase='race';r.countdown=0;r.time=102;
+ r.results=new win.ApexResults.Classification(r.track.length,laps);
+ r.penalty=kind==='penalty'?5:0;
+ r.results.setPenalty(p,r.penalty);
+ if(kind==='dnf'){
+  p.d=r.track.length*5;r.results.retire(p,90,'Combustível esgotado');cross(r,b,1,100);
+ }else if(kind==='lapped'){
+  cross(r,b,3,100);cross(r,p,2,105);r.time=105;
+ }else{
+  cross(r,p,1,100);
+  if(kind!=='pending')cross(r,b,1,102);
+ }
+ if(kind==='pending')r.updateAI=()=>{};
+ r.updateResults([],r.time);
+ fixture={r,p,b,kind};
+ out.textContent='Conferindo a tela real…';
+ setTimeout(verify,350);
+}
+function verify(){
+ if(!fixture)return;
+ const {r,p,kind}=fixture,doc=frame.contentDocument;
+ const text=doc.getElementById('modalContent').textContent;
+ const expected=kind==='pending'?'RESULTADO PROVISÓRIO':kind==='dnf'?'Abandono.':kind==='completed'?'P1.':'P2.';
+ const ok=text.includes(expected)&&(kind==='pending'||r.results.final!==null);
+ const row=r.classification().find(row=>row.id===p.id);
+ const points=doc.querySelector('.split-stat div:last-child b')?.textContent;
+ const checks={scenario:kind,mode:query.get('mode')||'gp',ok:ok&&(kind==='pending'||Number(points)===row.points),expected,position:row.position,points:row.points,displayedPoints:points??null,penalty:row.penalty,status:row.status,definitive:!!r.results.final};
+ out.dataset.ok=String(checks.ok);
+ out.dataset.report=JSON.stringify(checks);
+ out.textContent=`${checks.ok?'OK':'FALHA'} · ${kind} · ${row.status==='dnf'?'Abandono':'P'+row.position} · ${row.points} pontos · ${checks.definitive?'Resultado definitivo':'Resultado provisório'}`;
+ if(!checks.ok)setTimeout(verify,100);
+}
+frame.addEventListener('load',()=>{
+ out.textContent='Escolha um cenário. A +5 s deve mostrar P2 e 18 pontos; abandono deve mostrar 0 pontos.';
+ document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>scenario(button.dataset.case));
+ document.getElementById('completePending').onclick=()=>{
+  if(!fixture||fixture.kind!=='pending')return;
+  const {r,b}=fixture;cross(r,b,1,r.time+2);r.time+=2;r.updateResults([],r.time);
+  fixture.kind='completed';
+  setTimeout(verify,350);
+ };
+ if(query.has('case'))scenario(query.get('case'));
+ if(query.has('complete'))setTimeout(()=>document.getElementById('completePending').click(),600);
+});
+</script>
+</html>

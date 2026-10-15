@@ -1,11 +1,12 @@
 # Plano persistente de melhorias — APEX Formula
 
-Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próximas etapas. A auditoria original está em `AUDITORIA-REALISMO.md`; suas medições de 06/10 permanecem como histórico da versão 0.1.0.
+Atualizado em 15/10/2026. Este arquivo guarda decisões e pendências para próximas etapas. A auditoria original está em `AUDITORIA-REALISMO.md`; suas medições de 06/10 permanecem como histórico da versão 0.1.0.
 
 ## Decisões do usuário
 
 - Implementar suspensão por roda, movimento da carroceria, colisões entre carros, aerodinâmica detalhada e embreagem manual de largada.
 - Prioridade atual: **os seis mapas originais, a circulação dos carros, curvas desafiadoras, cenários e HUD**, preservando o carro e a pilotagem manual.
+- Revisão de prioridade em 15/10/2026: evoluir pelas [etapas de desenvolvimento](ETAPAS-DE-EVOLUCAO.md). Etapas 1 a 6 implementadas; a etapa 6 aguarda avaliação. O conforto humano de teclado/gamepad da etapa 5 continua pendente. Veja [fantasma, mapas e classificação](EVOLUCAO-ETAPA-6.md).
 - Retirar assistência de pilotagem e corrigir transmissão e temperatura dos pneus.
 - Usar dados reais como referência, indicando as aproximações de calibração.
 - Guardar todas as mudanças necessárias; evoluir pistas e demais sistemas depois do carro.
@@ -46,12 +47,15 @@ Atualizado em 08/10/2026. Este arquivo guarda decisões e pendências para próx
 ## Integridade competitiva — depois da etapa do carro
 
 - [x] Invalidar recorde após sair completamente da pista ou usar reposicionamento; cronometrar setores e delta por distância na versão 0.4.0.
-- [ ] Classificação por voltas realmente completadas, com regras e fiscalização detalhadas (parte restante de R12).
-- [ ] Registrar chegadas e reordenar resultado e pontos por penalidades de tempo (R13).
-- [ ] Evitar crédito indevido de volta ao reposicionar ou cruzar linha em sentido inverso.
+- [x] Contagem de voltas e posições de corrida por pontos de controle ordenados, com recuperação sem progresso indevido (etapa 2, parte de R12).
+- [ ] Classificação dos adversários por voltas efetivas na sessão classificatória e fiscalização mais detalhada (restante de R12).
+- [x] Registrar chegadas e reordenar resultado e pontos por penalidades de tempo (R13), implementado na [etapa 1](RESULTADOS-ETAPA-1.md), aguardando avaliação do usuário. Checkpoints obrigatórios continuam pendentes.
+- [x] Evitar crédito indevido de volta ao reposicionar ou cruzar linha em sentido inverso (etapa 2).
 - [ ] Fazer adversários obedecerem à mesma física, combustível, pneus, ERS e danos do jogador.
+- A etapa 3 acrescentou limites aproximados de aderência, temperatura, combustível, energia e danos aos adversários. A integração completa com a física livre do jogador continua pendente.
 - [ ] Melhorar defesa, ataque, prevenção de contato e estratégia da IA; simular classificação com voltas efetivas.
 - [ ] Safety Car com reagrupamento, VSC por delta, zonas de bandeiras e regras de ultrapassagem completas.
+- A [etapa 3](ADVERSARIOS-ETAPA-3.md) implementou fila, relargada na linha, VSC por delta e devolução de posição nas regras locais. Zonas por trecho e procedimentos oficiais completos continuam pendentes.
 - [ ] Limites, parada e entrada/saída dos boxes verificáveis; infrações e serviço por componente.
 - [ ] Fixar temporada de referência. DRS convencional corresponde à geração até 2025; Active Aero/Overtake/Recharge de 2026 exigem outra configuração.
 
@@ -90,7 +94,8 @@ Referências escolhidas na auditoria: Interlagos, Marina Bay, Monza, Barcelona-C
 - [ ] Escolha de carro/equipe na corrida rápida, contratos por proposta e reputação por infrações; comparar e medir os seis upgrades separadamente.
 - [ ] Distâncias de 25/50/100% baseadas no calendário escolhido e no circuito, substituindo a base única de 58 voltas.
 - [ ] Resolução, qualidade de reflexos, qualidade de sombras e motion blur configuráveis; validar qualidade em outras resoluções; a sobreposição do menu estreito foi corrigida em 0.3.0. Validar pedais e câmbio por toque em aparelhos físicos.
-- [ ] Campeonato com classificação dos rivais e calendário definido; contratos e desenvolvimento de equipe na carreira.
+- [x] Campeonato com classificação dos rivais, calendário e progresso independente; migração do salvamento e histórico de temporadas (etapa 4).
+- [ ] Contratos negociáveis e desenvolvimento de equipe na carreira.
 - [ ] Multiplayer com servidor e sincronização; não há serviço online implementado.
 - [ ] Testes de latência, frame times e desempenho em outras máquinas, resoluções e controles.
 
