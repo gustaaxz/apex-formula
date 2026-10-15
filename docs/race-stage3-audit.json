@@ -1,0 +1,151 @@
+{
+  "renderingIncluded": false,
+  "physicsHz": 240,
+  "reportedStepHz": 60,
+  "measurements": [
+    {
+      "track": "APX-01",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 1892.14,
+      "meanStepMs": 0.5256,
+      "maxStepMs": 10.921,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-01",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2082,
+      "meanStepMs": 0.5783,
+      "maxStepMs": 7.107,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-02",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2377.4,
+      "meanStepMs": 0.6604,
+      "maxStepMs": 5.003,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-02",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2153.99,
+      "meanStepMs": 0.5983,
+      "maxStepMs": 4.097,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-03",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2157.39,
+      "meanStepMs": 0.5993,
+      "maxStepMs": 3.219,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-03",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2232.59,
+      "meanStepMs": 0.6202,
+      "maxStepMs": 4.683,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-04",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2274.72,
+      "meanStepMs": 0.6319,
+      "maxStepMs": 3.65,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-04",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2194.99,
+      "meanStepMs": 0.6097,
+      "maxStepMs": 3.163,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-05",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2365.74,
+      "meanStepMs": 0.6572,
+      "maxStepMs": 3.77,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-05",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2307.14,
+      "meanStepMs": 0.6409,
+      "maxStepMs": 3.568,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-06",
+      "wet": false,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2242.61,
+      "meanStepMs": 0.6229,
+      "maxStepMs": 4.635,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    },
+    {
+      "track": "APX-06",
+      "wet": true,
+      "simulatedSeconds": 60.00000000002078,
+      "wallMs": 2308.05,
+      "meanStepMs": 0.6411,
+      "maxStepMs": 3.669,
+      "contacts": 0,
+      "playerPenalties": 0,
+      "aiPenalties": 0,
+      "finite": true
+    }
+  ]
+}
