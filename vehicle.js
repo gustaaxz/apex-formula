@@ -50,7 +50,8 @@ function tick(r,dt,input,tyres){
  const fX=Math.cos(p.heading),fZ=Math.sin(p.heading),nX=-fZ,nZ=fX;
  let u=p.vx*fX+p.vz*fZ,v=p.vx*nX+p.vz*nZ;
  const throttle=clamp(input.throttle||0,0,1),brake=clamp(input.brake||0,0,1),steer=clamp(input.steer||0,-1,1);
- p.steer+=clamp(steer-p.steer,-dt*3.5,dt*3.5);p.steerAngle=p.steer*.34;
+ const steerRate=clamp(Number.isFinite(c.steerRate)?c.steerRate:3.5,1,8);
+ p.steer+=clamp(steer-p.steer,-dt*steerRate,dt*steerRate);p.steerAngle=p.steer*.34;
  const offroad=!r.pit&&Math.abs(p.lane)>7.4,wet=r.wetness;
  const base=(tyre.grip*(1-wet)+tyre.wet*wet)*1.65*(1-(1-p.condition)*.4)*(1-p.damage*.22)*(c.gripBoost||1)*(offroad?.42:1);
  const gf=thermalGrip(p.frontTemp,p.tyre),gr=thermalGrip(p.rearTemp,p.tyre);
@@ -89,7 +90,8 @@ function tick(r,dt,input,tyres){
  if(p.lane<minLane||p.lane>maxLane){const sign=p.lane<minLane?-1:1,wall=sign<0?minLane:maxLane,t=r.track.at(p.d),out=(p.vx*t.nx+p.vz*t.nz)*sign;p.lane=wall-sign*.05;p.x=t.x+t.nx*p.lane;p.z=t.z+t.nz*p.lane;if(out>0){p.vx-=t.nx*sign*out*1.18;p.vz-=t.nz*sign*out*1.18;if(out>.7)r.collide(.04+out/100,false);}project(r);}
  p.speed=Math.hypot(p.vx,p.vz);p.forwardSpeed=p.vx*Math.cos(p.heading)+p.vz*Math.sin(p.heading);p._lastSpeed=p.speed;
  const regenWatts=brake>0?Math.min(120000,(Math.abs(fxF)+Math.abs(Math.min(0,fxR*direction)))*Math.abs(u)*.25):0;
- p.battery=clamp(p.battery+(regenWatts-deployWatts)*dt/40000,0,100);
+ const upgradeRegen=c.mode==='career'&&regenWatts>0&&Math.abs(u)>2?clamp(Number.isFinite(c.energyUpgrade)?c.energyUpgrade:0,0,3)*.08:0;
+ p.battery=clamp(p.battery+((regenWatts-deployWatts)/40000+upgradeRegen)*dt,0,100);
  if(c.consumption)p.fuel=Math.max(0,p.fuel-dt*(.001+throttle*.018)*(p.fuel>0?1:0));
  const rollingHeat=Math.min(1,Math.abs(u)/4);
  const heatFront=brake*Math.abs(u)*.06+Math.abs(fyF*v)/25000+Math.abs(slipF)*Math.abs(u)*.055+Math.abs(u)*.02;
