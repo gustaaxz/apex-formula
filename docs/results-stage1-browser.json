@@ -1,0 +1,116 @@
+{
+  "reports": [
+    {
+      "scenario": "penalty",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "layout": {
+        "viewport": 1440,
+        "body": 1440,
+        "modal": 1000,
+        "tableScrollable": false,
+        "rows": 2
+      }
+    },
+    {
+      "scenario": "lapped",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 0,
+      "status": "finished",
+      "definitive": true
+    },
+    {
+      "scenario": "dnf",
+      "mode": "gp",
+      "ok": true,
+      "expected": "Abandono.",
+      "position": 2,
+      "points": 0,
+      "displayedPoints": "0",
+      "penalty": 0,
+      "status": "dnf",
+      "definitive": true
+    },
+    {
+      "scenario": "pending",
+      "mode": "gp",
+      "ok": true,
+      "expected": "RESULTADO PROVISÓRIO",
+      "position": 1,
+      "points": 25,
+      "displayedPoints": null,
+      "penalty": 0,
+      "status": "finished",
+      "definitive": false
+    },
+    {
+      "scenario": "completed",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P1.",
+      "position": 1,
+      "points": 25,
+      "displayedPoints": "25",
+      "penalty": 0,
+      "status": "finished",
+      "definitive": true
+    },
+    {
+      "scenario": "career",
+      "mode": "career",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "saved": {
+        "points": 18,
+        "credits": 112,
+        "round": 1
+      }
+    },
+    {
+      "scenario": "mobile",
+      "mode": "gp",
+      "ok": true,
+      "expected": "P2.",
+      "position": 2,
+      "points": 18,
+      "displayedPoints": "18",
+      "penalty": 5,
+      "status": "finished",
+      "definitive": true,
+      "layout": {
+        "viewport": 390,
+        "body": 390,
+        "modal": 366.59375,
+        "tableScrollable": true,
+        "rows": 2
+      }
+    },
+    {
+      "scenario": "offline-review",
+      "ok": true,
+      "penaltyPoints": 18,
+      "penaltyCredits": 112,
+      "reopenUnchanged": true,
+      "completedPoints": 25
+    }
+  ],
+  "exceptions": []
+}
