@@ -1,0 +1,60 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APEX · Etapa 2</title>
+<style>body{margin:0;background:#101820;color:#eaf4f6;font:13px system-ui}header,output{display:block;padding:12px 16px}button{padding:10px;background:#d8ff3e;border:0;cursor:pointer;margin:4px}iframe{width:100%;height:calc(100vh - 140px);min-height:450px;border:0}</style>
+<header>ETAPA 2 · Tela real · Exemplos controlados sem gravação de progresso<br><button data-case="qualify-valid">Classificação válida</button><button data-case="qualify-invalid">Sem tempo válido</button><button data-case="qualify-grid">Largar em P20</button><button data-case="cut">Corte de caminho</button><button data-case="recover">Recuperar com X</button></header>
+<output id="verification" role="status">Preparando…</output><iframe title="APEX · Etapa 2 em avaliação" src="../index.html"></iframe>
+<script>
+const frame=document.querySelector('iframe'),out=document.querySelector('output'),query=new URLSearchParams(location.search);let fixture;
+function feed(r,to,lane=0){
+ let from=r.progress.sample?.d??r.player.d;
+ while(from<to-1e-8){
+  const next=Math.min(to,from+5),a=r.track.at(from),b=r.track.at(next),before=r.time;
+  r.time+=(next-from)/80;
+  const events=r.progress.update({from,to:next,fromX:r.progress.sample?.x??a.x,fromZ:r.progress.sample?.z??a.z,x:b.x+b.nx*lane,z:b.z+b.nz*lane},before,r.time);
+  r.recordTiming(events);from=next;
+ }
+ frame.contentWindow.ApexVehicle.reset(r,to,lane,0);
+}
+function scenario(scenario){
+ const win=frame.contentWindow,doc=frame.contentDocument;win.focus();
+ if(win.apex.race){
+  if(!win.apex.race.finish){doc.getElementById('pauseButton').click();doc.getElementById('leave')?.click();}
+  else doc.getElementById('resultContinue')?.click();
+ }
+ // Reloading is unnecessary: the real menu and session reset their private state.
+ if(win.apex.race){doc.getElementById('pauseButton').click();doc.getElementById('leave')?.click();}
+ doc.querySelector('[data-mode="gp"]').click();doc.getElementById('race').click();doc.getElementById('qualify').click();
+ const r=win.apex.race,kind=scenario==='mobile'?'qualify-invalid':scenario;
+ r.phase='race';r.countdown=0;
+ if(kind==='recover'){
+  feed(r,300);const last=r.progress.lastCheckpointD;r.resetPlayer(r.track.length-1,0,0);
+  win.dispatchEvent(new win.KeyboardEvent('keydown',{code:'KeyX',bubbles:true}));
+  win.dispatchEvent(new win.KeyboardEvent('keyup',{code:'KeyX',bubbles:true}));
+  fixture={scenario,kind,r,last};
+ }else{
+  feed(r,100);
+  if(kind==='cut')feed(r,220,20);
+  else if(kind!=='qualify-valid')r.timing.invalidate();
+  feed(r,r.track.length+1);r.step(1/120,{});
+  fixture={scenario,kind,r};
+ }
+ verify();
+}
+function verify(){
+ const {scenario,kind,r,last}=fixture,doc=frame.contentDocument;
+ const text=doc.getElementById('modalContent').textContent;
+ let ok=kind==='recover'?Math.abs(r.player.d-last)<.1&&r.penalty===5&&!r.timing.valid:
+  kind==='qualify-valid'?r.best!==null&&text.includes('no grid.'):
+  r.best===null&&text.includes('Sem tempo válido.')&&text.includes('P20');
+ if(ok&&kind==='qualify-grid'){
+  doc.getElementById('resultContinue').click();
+  const next=frame.contentWindow.apex.race;ok=next.config.session==='race'&&next.position===20&&next.player.d===-171;
+ }
+ const report={scenario,ok,completedLaps:r.progress.laps,attempts:r.timing.completed.length,best:r.best,penalty:r.penalty,recoveredAt:kind==='recover'?r.player.d:null,expectedRecovery:last??null};
+ out.dataset.report=JSON.stringify(report);out.textContent=`${ok?'OK':'Aguardando'} · ${scenario} · ${r.progress.laps} volta(s) contabilizada(s) · melhor: ${r.best??'sem tempo'}`;
+ if(!ok)setTimeout(verify,100);
+}
+frame.addEventListener('load',()=>{
+ document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>scenario(button.dataset.case));
+ out.textContent='Escolha um cenário.';if(query.has('case'))scenario(query.get('case'));
+});
+</script></html>
