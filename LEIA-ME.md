@@ -31,9 +31,9 @@ Gamepad padrão: RT/LT acelerador/freio; analógico esquerdo direção; direito 
 
 ## Pilotar sem assistência
 
-Espere as luzes apagarem e acelere com W, seta para cima, RT ou o pedal de toque. O acoplamento ocorre automaticamente na largada, nas paradas e na saída dos boxes; não há comando de embreagem. Soltar o acelerador não faz o carro sair sozinho. **Toda a trajetória, frenagem e troca de marcha ficam com você.** As oito marchas e a ré continuam manuais. ABS, controle de tração, assistência de direção/freio e câmbio automático continuam desativados, inclusive em saves antigos. A linha visual opcional não controla o carro.
+Espere as luzes apagarem e acelere com W, seta para cima, RT ou o pedal de toque. O acoplamento ocorre automaticamente na largada, nas paradas e na saída dos boxes; não há comando de embreagem. Soltar o acelerador não faz o carro sair sozinho. **Você controla direção, acelerador e freio.** O câmbio automático vem ativado; desligue-o nas configurações para trocar manualmente. A direção fica progressivamente menos sensível em alta velocidade. Os adversários largam com aceleração controlada e mantêm mais espaço entre os carros. A linha visual opcional não controla o carro.
 
-Suba a marcha perto de 11.500 RPM, indicado pelos LEDs. Se mantiver a primeira, a velocidade fica perto de 108 km/h. Reduções que excederiam 15.000 RPM são recusadas. Pare antes de selecionar a ré com Z.
+No modo manual, suba a marcha perto de 11.500 RPM, indicado pelos LEDs. Se mantiver a primeira, a velocidade fica perto de 108 km/h. Reduções que excederiam 15.000 RPM são recusadas. Pare antes de selecionar a ré com Z.
 
 Use menos acelerador nas marchas baixas e ao sair de curvas. Frear forte enquanto esterça pode travar rodas e fazer o carro seguir reto; solte parte do freio antes de virar. Teclado tem pedais binários: use toques curtos. Um gamepad permite dosar pedais e direção.
 

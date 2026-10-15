@@ -16,7 +16,8 @@ function ratio(gear){return gear===-1?POWERTRAIN.reverseRPMPerKph:POWERTRAIN.rpm
 function shift(r,delta){const p=r.player;if(p.gear<1||p.shiftTimer>0)return false;const next=clamp(p.gear+Math.sign(delta),1,8);if(next===p.gear)return false;if(next<p.gear&&Math.abs(p.forwardSpeed||p.speed)*3.6*ratio(next)>POWERTRAIN.mechanicalRPM){r.message('Redução recusada: rotação acima do limite mecânico.');return false;}p.gear=next;p.shiftTimer=POWERTRAIN.shiftTime;p.engineRPM=Math.max(POWERTRAIN.idle,Math.abs(p.forwardSpeed||p.speed)*3.6*ratio(next));return true;}
 function reverse(r){const p=r.player;if(p.speed>1){r.message('Pare o carro antes de selecionar a ré.');return false;}p.gear=p.gear===-1?1:-1;p.shiftTimer=POWERTRAIN.shiftTime;r.message(p.gear===-1?'Ré selecionada. Acelere com cuidado.':'Primeira marcha selecionada.');return true;}
 function restart(r){const p=r.player;if(p.clutch<.8){r.message('Puxe a embreagem antes de religar o motor.');return false;}p.engineRunning=true;p.engineRPM=POWERTRAIN.idle;r.message('Motor ligado. Dose a embreagem para sair.');return true;}
-function powertrain(r,dt,input,u,rearCap=5000){const p=r.player,c=r.config,throttle=clamp(input.throttle||0,0,1);// The playable game couples automatically at low speed; explicit clutch input is retained for physical bench tests.
+function automaticShift(r,u){const p=r.player,kph=Math.abs(u)*3.6;if(p.gear<1||p.shiftTimer>0)return;const current=kph*ratio(p.gear);if(p.gear<8&&current>=POWERTRAIN.shiftRPM){shift(r,1);return;}if(p.gear>1&&kph>25&&current<4800&&kph*ratio(p.gear-1)<9200)shift(r,-1);}
+function powertrain(r,dt,input,u,rearCap=5000){const p=r.player,c=r.config,throttle=clamp(input.throttle||0,0,1);if(c.autoShift)automaticShift(r,u);// The playable game couples automatically at low speed; explicit clutch input is retained for physical bench tests.
  const launch=clamp(Math.abs(u)/6,0,1),idleMargin=clamp(((p.engineRPM??POWERTRAIN.idle)-1800)/(POWERTRAIN.idle-1800),0,1);
  p.clutch=input.clutch!==undefined?clamp(input.clutch,0,1):1-idleMargin*(throttle>0?.6+.4*launch:launch);p.shiftTimer=Math.max(0,(p.shiftTimer||0)-dt);
  const roadRPM=u*(p.gear<0?-1:1)*3.6*ratio(p.gear),overall=ratio(p.gear)*2*Math.PI*POWERTRAIN.wheelRadius*60/1000;
@@ -50,8 +51,8 @@ function tick(r,dt,input,tyres){
  const fX=Math.cos(p.heading),fZ=Math.sin(p.heading),nX=-fZ,nZ=fX;
  let u=p.vx*fX+p.vz*fZ,v=p.vx*nX+p.vz*nZ;
  const throttle=clamp(input.throttle||0,0,1),brake=clamp(input.brake||0,0,1),steer=clamp(input.steer||0,-1,1);
- const steerRate=clamp(Number.isFinite(c.steerRate)?c.steerRate:3.5,1,8);
- p.steer+=clamp(steer-p.steer,-dt*steerRate,dt*steerRate);p.steerAngle=p.steer*.34;
+ const steerRate=clamp(Number.isFinite(c.steerRate)?c.steerRate:3.5,1,8),speedSteerScale=1/(1+1.5*Math.pow(Math.abs(u)/22,1.3));
+ p.steer+=clamp(steer-p.steer,-dt*steerRate,dt*steerRate);p.steerAngle=p.steer*.34*speedSteerScale;
  const offroad=!r.pit&&Math.abs(p.lane)>7.4,wet=r.wetness;
  const base=(tyre.grip*(1-wet)+tyre.wet*wet)*1.65*(1-(1-p.condition)*.4)*(1-p.damage*.22)*(c.gripBoost||1)*(offroad?.42:1);
  const gf=thermalGrip(p.frontTemp,p.tyre),gr=thermalGrip(p.rearTemp,p.tyre);
@@ -81,7 +82,7 @@ function tick(r,dt,input,tyres){
  p.longAcceleration=ax;p.lateralAcceleration=ay;
  p.vx+=(ax*fX+ay*nX)*dt;p.vz+=(ax*fZ+ay*nZ)*dt;
  if(Math.abs(u)<4){const target=u/wb*Math.tan(delta);p.yawRate+=(target-p.yawRate)*Math.min(1,dt*12);const lateral=p.vx*nX+p.vz*nZ;p.vx-=lateral*nX*Math.min(1,dt*8);p.vz-=lateral*nZ*Math.min(1,dt*8);}
- else{p.yawRate+=(a*frontY-b*fyR)/(mass*2.4)*dt;p.yawRate*=Math.exp(-dt*1.8);}
+ else{p.yawRate+=(a*frontY-b*fyR)/(mass*2.4)*dt;p.yawRate*=Math.exp(-dt*(1.8+clamp((Math.abs(u)-20)*.04,0,2.2)));}
  const newU=p.vx*fX+p.vz*fZ;
  if(brake>0&&(u*newU<0||Math.abs(u)<.1)&&Math.abs(u)<1.5&&Math.abs(drive)<brakeForce||Math.hypot(p.vx,p.vz)<.06&&throttle===0&&Math.abs(grade)<.012){p.vx=p.vz=p.yawRate=0;p.longAcceleration=p.lateralAcceleration=0;}
  p.heading=wrap(p.heading+p.yawRate*dt);p.x+=p.vx*dt;p.z+=p.vz*dt;project(r);

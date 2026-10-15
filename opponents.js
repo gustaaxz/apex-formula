@@ -82,7 +82,7 @@ function step(r,dt,tyres){
    if(b===a||b.raceStatus)continue;
    const ahead=gap(a,b,L),sameCorridor=Math.abs(b.lane-a.lane)<2.6;
    if(ahead>0&&ahead<100&&sameCorridor){
-    const safe=7+a.speed*.45;
+    const safe=10+a.speed*.5;
     desired=Math.min(desired,Math.max(0,b.speed+(ahead-safe)*.8));
    }
    if(Math.abs(ahead)<9&&Math.abs(lane-b.lane)<2.6&&Math.abs(a.lane-b.lane)>2.3)lane=a.lane;
@@ -91,7 +91,8 @@ function step(r,dt,tyres){
   const boost=!neutral&&!a.pitPhase&&a.aiDecision==='attack'&&a.battery>10;
   const enginePower=(540000+(boost?120000:0))*(1-a.damage*.4);
   const acceleration=Math.max(0,Math.min(11,traction*.65,enginePower/(mass*Math.max(15,a.speed)))-(a.aero?.drag||0)/mass);
-  a.speed+=clamp(desired-a.speed,-braking*dt,acceleration*dt);
+  const launchCap=clamp(3.5+Math.max(0,r.time)*2.4,3.5,9.5);
+  a.speed+=clamp(desired-a.speed,-braking*dt,Math.min(acceleration,launchCap)*dt);
   if(a.pitPhase==='service')a.speed=0;
   const maxLateral=a.pitPhase?3.5:1.8;
   const targetLateral=clamp((lane-a.lane)*2,-maxLateral,maxLateral);
